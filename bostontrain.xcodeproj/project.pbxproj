@@ -1,0 +1,487 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FA30B8F2176CD6CD00387D9B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30B8F1176CD6CD00387D9B /* UIKit.framework */; };
+		FA30B8F4176CD6CD00387D9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30B8F3176CD6CD00387D9B /* Foundation.framework */; };
+		FA30B8F6176CD6CD00387D9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30B8F5176CD6CD00387D9B /* CoreGraphics.framework */; };
+		FA30B8FC176CD6CE00387D9B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA30B8FA176CD6CE00387D9B /* InfoPlist.strings */; };
+		FA30B8FE176CD6CE00387D9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B8FD176CD6CE00387D9B /* main.m */; };
+		FA30B902176CD6CE00387D9B /* BTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B901176CD6CE00387D9B /* BTAppDelegate.m */; };
+		FA30B904176CD6CE00387D9B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FA30B903176CD6CE00387D9B /* Default.png */; };
+		FA30B906176CD6CE00387D9B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA30B905176CD6CE00387D9B /* Default@2x.png */; };
+		FA30B908176CD6CE00387D9B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA30B907176CD6CE00387D9B /* Default-568h@2x.png */; };
+		FA30B90B176CD6CE00387D9B /* BTMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B90A176CD6CE00387D9B /* BTMasterViewController.m */; };
+		FA30B90E176CD6CE00387D9B /* BTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B90D176CD6CE00387D9B /* BTDetailViewController.m */; };
+		FA30B911176CD6CE00387D9B /* BTMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30B90F176CD6CE00387D9B /* BTMasterViewController.xib */; };
+		FA30B914176CD6CE00387D9B /* BTDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30B912176CD6CE00387D9B /* BTDetailViewController.xib */; };
+		FA30B91C176CD6CE00387D9B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30B91B176CD6CE00387D9B /* SenTestingKit.framework */; };
+		FA30B91D176CD6CE00387D9B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30B8F1176CD6CD00387D9B /* UIKit.framework */; };
+		FA30B91E176CD6CE00387D9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30B8F3176CD6CD00387D9B /* Foundation.framework */; };
+		FA30B926176CD6CE00387D9B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA30B924176CD6CE00387D9B /* InfoPlist.strings */; };
+		FA30B929176CD6CE00387D9B /* bostontrainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B928176CD6CE00387D9B /* bostontrainTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA30B91F176CD6CE00387D9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA30B8E6176CD6CD00387D9B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA30B8ED176CD6CD00387D9B;
+			remoteInfo = bostontrain;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FA30B8EE176CD6CD00387D9B /* bostontrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bostontrain.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA30B8F1176CD6CD00387D9B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FA30B8F3176CD6CD00387D9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FA30B8F5176CD6CD00387D9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FA30B8F9176CD6CD00387D9B /* bostontrain-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "bostontrain-Info.plist"; sourceTree = "<group>"; };
+		FA30B8FB176CD6CE00387D9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FA30B8FD176CD6CE00387D9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FA30B8FF176CD6CE00387D9B /* bostontrain-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bostontrain-Prefix.pch"; sourceTree = "<group>"; };
+		FA30B900176CD6CE00387D9B /* BTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTAppDelegate.h; sourceTree = "<group>"; };
+		FA30B901176CD6CE00387D9B /* BTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTAppDelegate.m; sourceTree = "<group>"; };
+		FA30B903176CD6CE00387D9B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FA30B905176CD6CE00387D9B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		FA30B907176CD6CE00387D9B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FA30B909176CD6CE00387D9B /* BTMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTMasterViewController.h; sourceTree = "<group>"; };
+		FA30B90A176CD6CE00387D9B /* BTMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTMasterViewController.m; sourceTree = "<group>"; };
+		FA30B90C176CD6CE00387D9B /* BTDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTDetailViewController.h; sourceTree = "<group>"; };
+		FA30B90D176CD6CE00387D9B /* BTDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTDetailViewController.m; sourceTree = "<group>"; };
+		FA30B910176CD6CE00387D9B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BTMasterViewController.xib; sourceTree = "<group>"; };
+		FA30B913176CD6CE00387D9B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BTDetailViewController.xib; sourceTree = "<group>"; };
+		FA30B91A176CD6CE00387D9B /* bostontrainTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bostontrainTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA30B91B176CD6CE00387D9B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		FA30B923176CD6CE00387D9B /* bostontrainTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "bostontrainTests-Info.plist"; sourceTree = "<group>"; };
+		FA30B925176CD6CE00387D9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FA30B927176CD6CE00387D9B /* bostontrainTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bostontrainTests.h; sourceTree = "<group>"; };
+		FA30B928176CD6CE00387D9B /* bostontrainTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bostontrainTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA30B8EB176CD6CD00387D9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA30B8F2176CD6CD00387D9B /* UIKit.framework in Frameworks */,
+				FA30B8F4176CD6CD00387D9B /* Foundation.framework in Frameworks */,
+				FA30B8F6176CD6CD00387D9B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA30B916176CD6CE00387D9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA30B91C176CD6CE00387D9B /* SenTestingKit.framework in Frameworks */,
+				FA30B91D176CD6CE00387D9B /* UIKit.framework in Frameworks */,
+				FA30B91E176CD6CE00387D9B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA30B8E5176CD6CD00387D9B = {
+			isa = PBXGroup;
+			children = (
+				FA30B8F7176CD6CD00387D9B /* bostontrain */,
+				FA30B921176CD6CE00387D9B /* bostontrainTests */,
+				FA30B8F0176CD6CD00387D9B /* Frameworks */,
+				FA30B8EF176CD6CD00387D9B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FA30B8EF176CD6CD00387D9B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA30B8EE176CD6CD00387D9B /* bostontrain.app */,
+				FA30B91A176CD6CE00387D9B /* bostontrainTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA30B8F0176CD6CD00387D9B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA30B8F1176CD6CD00387D9B /* UIKit.framework */,
+				FA30B8F3176CD6CD00387D9B /* Foundation.framework */,
+				FA30B8F5176CD6CD00387D9B /* CoreGraphics.framework */,
+				FA30B91B176CD6CE00387D9B /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA30B8F7176CD6CD00387D9B /* bostontrain */ = {
+			isa = PBXGroup;
+			children = (
+				FA30B900176CD6CE00387D9B /* BTAppDelegate.h */,
+				FA30B901176CD6CE00387D9B /* BTAppDelegate.m */,
+				FA30B909176CD6CE00387D9B /* BTMasterViewController.h */,
+				FA30B90A176CD6CE00387D9B /* BTMasterViewController.m */,
+				FA30B90C176CD6CE00387D9B /* BTDetailViewController.h */,
+				FA30B90D176CD6CE00387D9B /* BTDetailViewController.m */,
+				FA30B90F176CD6CE00387D9B /* BTMasterViewController.xib */,
+				FA30B912176CD6CE00387D9B /* BTDetailViewController.xib */,
+				FA30B8F8176CD6CD00387D9B /* Supporting Files */,
+			);
+			path = bostontrain;
+			sourceTree = "<group>";
+		};
+		FA30B8F8176CD6CD00387D9B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA30B8F9176CD6CD00387D9B /* bostontrain-Info.plist */,
+				FA30B8FA176CD6CE00387D9B /* InfoPlist.strings */,
+				FA30B8FD176CD6CE00387D9B /* main.m */,
+				FA30B8FF176CD6CE00387D9B /* bostontrain-Prefix.pch */,
+				FA30B903176CD6CE00387D9B /* Default.png */,
+				FA30B905176CD6CE00387D9B /* Default@2x.png */,
+				FA30B907176CD6CE00387D9B /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA30B921176CD6CE00387D9B /* bostontrainTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA30B927176CD6CE00387D9B /* bostontrainTests.h */,
+				FA30B928176CD6CE00387D9B /* bostontrainTests.m */,
+				FA30B922176CD6CE00387D9B /* Supporting Files */,
+			);
+			path = bostontrainTests;
+			sourceTree = "<group>";
+		};
+		FA30B922176CD6CE00387D9B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA30B923176CD6CE00387D9B /* bostontrainTests-Info.plist */,
+				FA30B924176CD6CE00387D9B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA30B8ED176CD6CD00387D9B /* bostontrain */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA30B92C176CD6CE00387D9B /* Build configuration list for PBXNativeTarget "bostontrain" */;
+			buildPhases = (
+				FA30B8EA176CD6CD00387D9B /* Sources */,
+				FA30B8EB176CD6CD00387D9B /* Frameworks */,
+				FA30B8EC176CD6CD00387D9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = bostontrain;
+			productName = bostontrain;
+			productReference = FA30B8EE176CD6CD00387D9B /* bostontrain.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA30B919176CD6CE00387D9B /* bostontrainTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA30B92F176CD6CE00387D9B /* Build configuration list for PBXNativeTarget "bostontrainTests" */;
+			buildPhases = (
+				FA30B915176CD6CE00387D9B /* Sources */,
+				FA30B916176CD6CE00387D9B /* Frameworks */,
+				FA30B917176CD6CE00387D9B /* Resources */,
+				FA30B918176CD6CE00387D9B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA30B920176CD6CE00387D9B /* PBXTargetDependency */,
+			);
+			name = bostontrainTests;
+			productName = bostontrainTests;
+			productReference = FA30B91A176CD6CE00387D9B /* bostontrainTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA30B8E6176CD6CD00387D9B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BT;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Alex Liu";
+			};
+			buildConfigurationList = FA30B8E9176CD6CD00387D9B /* Build configuration list for PBXProject "bostontrain" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FA30B8E5176CD6CD00387D9B;
+			productRefGroup = FA30B8EF176CD6CD00387D9B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA30B8ED176CD6CD00387D9B /* bostontrain */,
+				FA30B919176CD6CE00387D9B /* bostontrainTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA30B8EC176CD6CD00387D9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA30B8FC176CD6CE00387D9B /* InfoPlist.strings in Resources */,
+				FA30B904176CD6CE00387D9B /* Default.png in Resources */,
+				FA30B906176CD6CE00387D9B /* Default@2x.png in Resources */,
+				FA30B908176CD6CE00387D9B /* Default-568h@2x.png in Resources */,
+				FA30B911176CD6CE00387D9B /* BTMasterViewController.xib in Resources */,
+				FA30B914176CD6CE00387D9B /* BTDetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA30B917176CD6CE00387D9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA30B926176CD6CE00387D9B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FA30B918176CD6CE00387D9B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA30B8EA176CD6CD00387D9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA30B8FE176CD6CE00387D9B /* main.m in Sources */,
+				FA30B902176CD6CE00387D9B /* BTAppDelegate.m in Sources */,
+				FA30B90B176CD6CE00387D9B /* BTMasterViewController.m in Sources */,
+				FA30B90E176CD6CE00387D9B /* BTDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA30B915176CD6CE00387D9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA30B929176CD6CE00387D9B /* bostontrainTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA30B920176CD6CE00387D9B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA30B8ED176CD6CD00387D9B /* bostontrain */;
+			targetProxy = FA30B91F176CD6CE00387D9B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FA30B8FA176CD6CE00387D9B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA30B8FB176CD6CE00387D9B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FA30B90F176CD6CE00387D9B /* BTMasterViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA30B910176CD6CE00387D9B /* en */,
+			);
+			name = BTMasterViewController.xib;
+			sourceTree = "<group>";
+		};
+		FA30B912176CD6CE00387D9B /* BTDetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA30B913176CD6CE00387D9B /* en */,
+			);
+			name = BTDetailViewController.xib;
+			sourceTree = "<group>";
+		};
+		FA30B924176CD6CE00387D9B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA30B925176CD6CE00387D9B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA30B92A176CD6CE00387D9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FA30B92B176CD6CE00387D9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA30B92D176CD6CE00387D9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "bostontrain/bostontrain-Prefix.pch";
+				INFOPLIST_FILE = "bostontrain/bostontrain-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FA30B92E176CD6CE00387D9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "bostontrain/bostontrain-Prefix.pch";
+				INFOPLIST_FILE = "bostontrain/bostontrain-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FA30B930176CD6CE00387D9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/bostontrain.app/bostontrain";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "bostontrain/bostontrain-Prefix.pch";
+				INFOPLIST_FILE = "bostontrainTests/bostontrainTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		FA30B931176CD6CE00387D9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/bostontrain.app/bostontrain";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "bostontrain/bostontrain-Prefix.pch";
+				INFOPLIST_FILE = "bostontrainTests/bostontrainTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA30B8E9176CD6CD00387D9B /* Build configuration list for PBXProject "bostontrain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA30B92A176CD6CE00387D9B /* Debug */,
+				FA30B92B176CD6CE00387D9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA30B92C176CD6CE00387D9B /* Build configuration list for PBXNativeTarget "bostontrain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA30B92D176CD6CE00387D9B /* Debug */,
+				FA30B92E176CD6CE00387D9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FA30B92F176CD6CE00387D9B /* Build configuration list for PBXNativeTarget "bostontrainTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA30B930176CD6CE00387D9B /* Debug */,
+				FA30B931176CD6CE00387D9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA30B8E6176CD6CD00387D9B /* Project object */;
+}
