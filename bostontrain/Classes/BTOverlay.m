@@ -22,11 +22,68 @@
 
 @implementation BTOverlay
 
-- (id)initWithFrame:(CGRect)frame
+//- (id)initWithFrame:(CGRect)frame
+//{
+//    self = [super initWithFrame:frame];
+//    if (self) {
+//        
+//    }
+//    return self;
+//}
+
+- (id)initWithFrame:(CGRect)frame currentView:(UIView *)currentView labelString:(NSString *)labelString edgeLength:(NSNumber *)edgeLength animated:(BOOL)animated
 {
     self = [super initWithFrame:frame];
     if (self) {
+        NSLog(@"Reached method");
+        vt_gap = 10;
         
+        self.frame = currentView.bounds;
+        self.alpha = 0;
+        
+        // Create frame in center of currentView
+        [self makeFramingView:edgeLength];
+        
+        // place indicator in center of framingView:
+        CGRect indicatorFrame = self.activityIndicator.frame;
+        indicatorFrame.origin.x = self.framingView.frame.origin.x + (self.framingView.frame.size.width - indicatorFrame.size.width) / 2;
+        indicatorFrame.origin.y = self.framingView.frame.origin.y + (self.framingView.frame.size.height - indicatorFrame.size.height) / 2;
+        self.activityIndicator.frame = indicatorFrame;
+        
+        // if labelString, show it as message
+        if (labelString)
+        {
+            self.activityLabel.text = labelString;
+            self.activityLabel.hidden = NO;
+        }
+        else {
+            self.activityLabel.hidden = YES;
+        }
+        
+        CGSize textSize = [self.activityLabel.text sizeWithFont:[UIFont systemFontOfSize:50]];
+        self.activityLabel.frame = CGRectMake(self.framingView.frame.origin.x, indicatorFrame.origin.y + indicatorFrame.size.height, self.framingView.frame.size.width, textSize.height);
+        
+        // add components
+        [self addSubview:self.framingView];
+        [self addSubview:self.activityLabel];
+        [self addSubview:self.activityIndicator];
+        
+        // add overlay to currentView
+        [currentView addSubview:self];
+        
+        // if animated, add the video
+        if (animated) {
+            
+            [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^(void) {
+                self.alpha = 1;
+            }completion:^(BOOL completion) {
+                //add completion block
+            }];
+        }
+        else {
+            self.alpha = 1;
+        }
+        return self;
     }
     return self;
 }
@@ -58,7 +115,7 @@
         self.activityLabel.hidden = YES;
     }
     
-    CGSize textSize = [self.activityLabel.text sizeWithFont:[UIFont systemFontOfSize:12]];
+    CGSize textSize = [self.activityLabel.text sizeWithFont:self.activityLabel.font];
     self.activityLabel.frame = CGRectMake(self.activityLabel.frame.origin.x, indicatorFrame.origin.y + indicatorFrame.size.height + vt_gap, indicatorFrame.size.width, textSize.height);
     
     // add components
@@ -133,7 +190,7 @@
 {
     if (!_activityIndicator)
     {
-        _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         [_activityIndicator startAnimating];
     }
     
@@ -148,12 +205,10 @@
     if (!_activityLabel)
     {
         _activityLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        _activityLabel.font = [UIFont systemFontOfSize:10];
+        _activityLabel.font = [UIFont systemFontOfSize:15];
         _activityLabel.textAlignment = NSTextAlignmentCenter;
-        _activityLabel.textColor = [UIColor blackColor];
+        _activityLabel.textColor = [UIColor whiteColor];
         _activityLabel.backgroundColor = [UIColor clearColor];
-        _activityLabel.shadowColor = [UIColor whiteColor];
-        _activityLabel.shadowOffset = CGSizeMake(0.0, 1.0);
         
     }
     
@@ -169,7 +224,7 @@
         _framingView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin
             | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
         _framingView.layer.cornerRadius = 10.0;
-        _framingView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+        _framingView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.9];
     }
     
     return _framingView;

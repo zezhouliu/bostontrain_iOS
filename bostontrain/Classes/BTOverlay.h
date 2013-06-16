@@ -22,7 +22,7 @@
 
 // Overlays
 - (BTOverlay *) addOverlay:(UIView *)currentView labelString:(NSString *)labelString edgeLength:(NSNumber *)edgeLength animated:(BOOL)animated;
-
+- (id)initWithFrame:(CGRect)frame currentView:(UIView *)currentView labelString:(NSString *)labelString edgeLength:(NSNumber *)edgeLength animated:(BOOL)animated;
 // remove Overlay
 - (void) hideOverlay: (BOOL)animated;
 

@@ -68,7 +68,7 @@
     }
     else {
         NSLog(@"Went to else statement");
-        self.overlay = [[BTOverlay alloc] addOverlay:self.window labelString:message edgeLength:nil animated:YES];
+        self.overlay = [[BTOverlay alloc] initWithFrame:CGRectZero currentView:self.window labelString:message edgeLength:nil animated:YES];
     }
 }
 
