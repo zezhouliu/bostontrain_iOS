@@ -15,6 +15,4 @@
 - (void) setLeftBarButtonItemWithAction:(id) target action:(SEL)action;
 - (void) setRightBarButtonItemWithAction:(id) target action:(SEL)action;
 
-- (UIButton *)buttonWithImage:(UIImage *)image activeImage:(UIImage *)activeImage;
-
 @end

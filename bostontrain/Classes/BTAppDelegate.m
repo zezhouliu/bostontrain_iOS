@@ -60,14 +60,11 @@
 #pragma mark - overlay methods
 - (void)showOverlayWithMessage:(NSString *) message
 {
-    NSLog(@"showOverlayMessage reached");
     
     if (self.overlay && self.overlay.superview) {
-        NSLog(@"Went to if statement");
         self.overlay.activityLabel.text = message;
     }
     else {
-        NSLog(@"Went to else statement");
         self.overlay = [[BTOverlay alloc] initWithFrame:CGRectZero currentView:self.window labelString:message edgeLength:nil animated:YES];
     }
 }

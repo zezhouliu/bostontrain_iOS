@@ -12,28 +12,11 @@
 
 - (void)setLeftBarButtonItemWithAction:(id)target action:(SEL)action
 {
-    UIImage *image = [UIImage imageNamed:@"backbutton.png"];
-    UIButton *navButton = [self buttonWithImage:image activeImage:[UIImage imageNamed:@"backbutton_active"]];
-    [navButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-    self.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:navButton];
+    self.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:target action:action];
 }
 
 - (void)setRightBarButtonItemWithAction:(id)target action:(SEL)action
 {
-    UIImage *image = [UIImage imageNamed:@"backbutton.png"];
-    UIButton *navButton = [self buttonWithImage:image activeImage:[UIImage imageNamed:@"backbutton_active"]];
-    [navButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-    self.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:navButton];
-}
-
-- (UIButton *)buttonWithImage:(UIImage *)image activeImage:(UIImage *)activeImage
-{
-    UIButton *navButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    navButton.frame = CGRectMake(0.0, 0.0, image.size.width, image.size.height);
-    [navButton setImage:image forState:UIControlStateNormal];
-    if (activeImage) {
-        [navButton setImage:activeImage forState:UIControlStateHighlighted];
-    }
-    return navButton;
+    self.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:target action:action];
 }
 @end
