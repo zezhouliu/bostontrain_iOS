@@ -18,13 +18,18 @@
 		FA30B908176CD6CE00387D9B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA30B907176CD6CE00387D9B /* Default-568h@2x.png */; };
 		FA30B90B176CD6CE00387D9B /* BTMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B90A176CD6CE00387D9B /* BTMasterViewController.m */; };
 		FA30B90E176CD6CE00387D9B /* BTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B90D176CD6CE00387D9B /* BTDetailViewController.m */; };
-		FA30B911176CD6CE00387D9B /* BTMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30B90F176CD6CE00387D9B /* BTMasterViewController.xib */; };
-		FA30B914176CD6CE00387D9B /* BTDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30B912176CD6CE00387D9B /* BTDetailViewController.xib */; };
 		FA30B91C176CD6CE00387D9B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30B91B176CD6CE00387D9B /* SenTestingKit.framework */; };
 		FA30B91D176CD6CE00387D9B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30B8F1176CD6CD00387D9B /* UIKit.framework */; };
 		FA30B91E176CD6CE00387D9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA30B8F3176CD6CD00387D9B /* Foundation.framework */; };
 		FA30B926176CD6CE00387D9B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA30B924176CD6CE00387D9B /* InfoPlist.strings */; };
 		FA30B929176CD6CE00387D9B /* bostontrainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B928176CD6CE00387D9B /* bostontrainTests.m */; };
+		FA30B937176CDD5D00387D9B /* BTMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30B936176CDD5D00387D9B /* BTMasterViewController.xib */; };
+		FA30B93A176CDD9C00387D9B /* BTDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30B939176CDD9C00387D9B /* BTDetailViewController.xib */; };
+		FA30B93D176CDE4000387D9B /* BTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B93C176CDE4000387D9B /* BTViewController.m */; };
+		FA30B942176CF09D00387D9B /* BTRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B941176CF09D00387D9B /* BTRequest.m */; };
+		FA30B947176CF40900387D9B /* BTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B946176CF40900387D9B /* BTNavigationController.m */; };
+		FA30B94A176CFC3E00387D9B /* BTOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B949176CFC3E00387D9B /* BTOverlay.m */; };
+		FA30B94D176D2B3100387D9B /* BTNavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B94C176D2B3100387D9B /* BTNavigationItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,25 +49,35 @@
 		FA30B8F5176CD6CD00387D9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FA30B8F9176CD6CD00387D9B /* bostontrain-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "bostontrain-Info.plist"; sourceTree = "<group>"; };
 		FA30B8FB176CD6CE00387D9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FA30B8FD176CD6CE00387D9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FA30B8FD176CD6CE00387D9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classes/main.m; sourceTree = "<group>"; };
 		FA30B8FF176CD6CE00387D9B /* bostontrain-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bostontrain-Prefix.pch"; sourceTree = "<group>"; };
-		FA30B900176CD6CE00387D9B /* BTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTAppDelegate.h; sourceTree = "<group>"; };
-		FA30B901176CD6CE00387D9B /* BTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTAppDelegate.m; sourceTree = "<group>"; };
+		FA30B900176CD6CE00387D9B /* BTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BTAppDelegate.h; path = bostontrain/Classes/BTAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		FA30B901176CD6CE00387D9B /* BTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BTAppDelegate.m; path = Classes/BTAppDelegate.m; sourceTree = "<group>"; };
 		FA30B903176CD6CE00387D9B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FA30B905176CD6CE00387D9B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FA30B907176CD6CE00387D9B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		FA30B909176CD6CE00387D9B /* BTMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTMasterViewController.h; sourceTree = "<group>"; };
-		FA30B90A176CD6CE00387D9B /* BTMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTMasterViewController.m; sourceTree = "<group>"; };
-		FA30B90C176CD6CE00387D9B /* BTDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTDetailViewController.h; sourceTree = "<group>"; };
-		FA30B90D176CD6CE00387D9B /* BTDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTDetailViewController.m; sourceTree = "<group>"; };
-		FA30B910176CD6CE00387D9B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BTMasterViewController.xib; sourceTree = "<group>"; };
-		FA30B913176CD6CE00387D9B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BTDetailViewController.xib; sourceTree = "<group>"; };
+		FA30B909176CD6CE00387D9B /* BTMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BTMasterViewController.h; path = Classes/BTMasterViewController.h; sourceTree = "<group>"; };
+		FA30B90A176CD6CE00387D9B /* BTMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BTMasterViewController.m; path = Classes/BTMasterViewController.m; sourceTree = "<group>"; };
+		FA30B90C176CD6CE00387D9B /* BTDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BTDetailViewController.h; path = Classes/BTDetailViewController.h; sourceTree = "<group>"; };
+		FA30B90D176CD6CE00387D9B /* BTDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BTDetailViewController.m; path = Classes/BTDetailViewController.m; sourceTree = "<group>"; };
 		FA30B91A176CD6CE00387D9B /* bostontrainTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bostontrainTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA30B91B176CD6CE00387D9B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		FA30B923176CD6CE00387D9B /* bostontrainTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "bostontrainTests-Info.plist"; sourceTree = "<group>"; };
 		FA30B925176CD6CE00387D9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FA30B927176CD6CE00387D9B /* bostontrainTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bostontrainTests.h; sourceTree = "<group>"; };
 		FA30B928176CD6CE00387D9B /* bostontrainTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bostontrainTests.m; sourceTree = "<group>"; };
+		FA30B936176CDD5D00387D9B /* BTMasterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BTMasterViewController.xib; path = Classes/BTMasterViewController.xib; sourceTree = "<group>"; };
+		FA30B939176CDD9C00387D9B /* BTDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BTDetailViewController.xib; path = Classes/BTDetailViewController.xib; sourceTree = "<group>"; };
+		FA30B93B176CDE4000387D9B /* BTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTViewController.h; path = Classes/BTViewController.h; sourceTree = "<group>"; };
+		FA30B93C176CDE4000387D9B /* BTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTViewController.m; path = Classes/BTViewController.m; sourceTree = "<group>"; };
+		FA30B940176CF09D00387D9B /* BTRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTRequest.h; sourceTree = "<group>"; };
+		FA30B941176CF09D00387D9B /* BTRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTRequest.m; sourceTree = "<group>"; };
+		FA30B945176CF40900387D9B /* BTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTNavigationController.h; sourceTree = "<group>"; };
+		FA30B946176CF40900387D9B /* BTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTNavigationController.m; sourceTree = "<group>"; };
+		FA30B948176CFC3E00387D9B /* BTOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTOverlay.h; sourceTree = "<group>"; };
+		FA30B949176CFC3E00387D9B /* BTOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTOverlay.m; sourceTree = "<group>"; };
+		FA30B94B176D2B3000387D9B /* BTNavigationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTNavigationItem.h; sourceTree = "<group>"; };
+		FA30B94C176D2B3100387D9B /* BTNavigationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTNavigationItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,14 +137,8 @@
 		FA30B8F7176CD6CD00387D9B /* bostontrain */ = {
 			isa = PBXGroup;
 			children = (
-				FA30B900176CD6CE00387D9B /* BTAppDelegate.h */,
-				FA30B901176CD6CE00387D9B /* BTAppDelegate.m */,
-				FA30B909176CD6CE00387D9B /* BTMasterViewController.h */,
-				FA30B90A176CD6CE00387D9B /* BTMasterViewController.m */,
-				FA30B90C176CD6CE00387D9B /* BTDetailViewController.h */,
-				FA30B90D176CD6CE00387D9B /* BTDetailViewController.m */,
-				FA30B90F176CD6CE00387D9B /* BTMasterViewController.xib */,
-				FA30B912176CD6CE00387D9B /* BTDetailViewController.xib */,
+				FA30B932176CDA2500387D9B /* Classes */,
+				FA30B933176CDA8800387D9B /* Images */,
 				FA30B8F8176CD6CD00387D9B /* Supporting Files */,
 			);
 			path = bostontrain;
@@ -166,6 +175,81 @@
 				FA30B924176CD6CE00387D9B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA30B932176CDA2500387D9B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FA30B93E176CF04600387D9B /* App Delegate */,
+				FA30B935176CDBAE00387D9B /* Views */,
+				FA30B93F176CF05500387D9B /* Helpers */,
+			);
+			name = Classes;
+			path = bostontrain/Classes;
+			sourceTree = SOURCE_ROOT;
+		};
+		FA30B933176CDA8800387D9B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		FA30B935176CDBAE00387D9B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA30B909176CD6CE00387D9B /* BTMasterViewController.h */,
+				FA30B90A176CD6CE00387D9B /* BTMasterViewController.m */,
+				FA30B90C176CD6CE00387D9B /* BTDetailViewController.h */,
+				FA30B90D176CD6CE00387D9B /* BTDetailViewController.m */,
+				FA30B936176CDD5D00387D9B /* BTMasterViewController.xib */,
+				FA30B939176CDD9C00387D9B /* BTDetailViewController.xib */,
+				FA30B93B176CDE4000387D9B /* BTViewController.h */,
+				FA30B93C176CDE4000387D9B /* BTViewController.m */,
+			);
+			name = Views;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FA30B93E176CF04600387D9B /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				FA30B900176CD6CE00387D9B /* BTAppDelegate.h */,
+				FA30B901176CD6CE00387D9B /* BTAppDelegate.m */,
+			);
+			name = "App Delegate";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FA30B93F176CF05500387D9B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FA30B944176CF3AD00387D9B /* Navigation */,
+				FA30B943176CF39D00387D9B /* Web API */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		FA30B943176CF39D00387D9B /* Web API */ = {
+			isa = PBXGroup;
+			children = (
+				FA30B940176CF09D00387D9B /* BTRequest.h */,
+				FA30B941176CF09D00387D9B /* BTRequest.m */,
+			);
+			name = "Web API";
+			sourceTree = "<group>";
+		};
+		FA30B944176CF3AD00387D9B /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				FA30B945176CF40900387D9B /* BTNavigationController.h */,
+				FA30B946176CF40900387D9B /* BTNavigationController.m */,
+				FA30B948176CFC3E00387D9B /* BTOverlay.h */,
+				FA30B94B176D2B3000387D9B /* BTNavigationItem.h */,
+				FA30B94C176D2B3100387D9B /* BTNavigationItem.m */,
+				FA30B949176CFC3E00387D9B /* BTOverlay.m */,
+			);
+			name = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,8 +328,8 @@
 				FA30B904176CD6CE00387D9B /* Default.png in Resources */,
 				FA30B906176CD6CE00387D9B /* Default@2x.png in Resources */,
 				FA30B908176CD6CE00387D9B /* Default-568h@2x.png in Resources */,
-				FA30B911176CD6CE00387D9B /* BTMasterViewController.xib in Resources */,
-				FA30B914176CD6CE00387D9B /* BTDetailViewController.xib in Resources */,
+				FA30B937176CDD5D00387D9B /* BTMasterViewController.xib in Resources */,
+				FA30B93A176CDD9C00387D9B /* BTDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +368,11 @@
 				FA30B902176CD6CE00387D9B /* BTAppDelegate.m in Sources */,
 				FA30B90B176CD6CE00387D9B /* BTMasterViewController.m in Sources */,
 				FA30B90E176CD6CE00387D9B /* BTDetailViewController.m in Sources */,
+				FA30B93D176CDE4000387D9B /* BTViewController.m in Sources */,
+				FA30B942176CF09D00387D9B /* BTRequest.m in Sources */,
+				FA30B947176CF40900387D9B /* BTNavigationController.m in Sources */,
+				FA30B94A176CFC3E00387D9B /* BTOverlay.m in Sources */,
+				FA30B94D176D2B3100387D9B /* BTNavigationItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,22 +401,6 @@
 				FA30B8FB176CD6CE00387D9B /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		FA30B90F176CD6CE00387D9B /* BTMasterViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA30B910176CD6CE00387D9B /* en */,
-			);
-			name = BTMasterViewController.xib;
-			sourceTree = "<group>";
-		};
-		FA30B912176CD6CE00387D9B /* BTDetailViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA30B913176CD6CE00387D9B /* en */,
-			);
-			name = BTDetailViewController.xib;
 			sourceTree = "<group>";
 		};
 		FA30B924176CD6CE00387D9B /* InfoPlist.strings */ = {

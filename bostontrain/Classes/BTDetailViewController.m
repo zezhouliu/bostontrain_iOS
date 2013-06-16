@@ -7,6 +7,7 @@
 //
 
 #import "BTDetailViewController.h"
+#import "BTViewController.h"
 
 @interface BTDetailViewController ()
 - (void)configureView;
@@ -40,6 +41,20 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    
+    UIButton *newbtn = [[UIButton alloc] initWithFrame:CGRectMake(50, 50, 50, 50)];
+    newbtn.backgroundColor = [UIColor redColor];
+    [newbtn addTarget:self action:@selector(loadBTViewController:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:newbtn];
+}
+
+
+- (void) loadBTViewController: (id) sender
+{
+    NSLog(@"Button pressed");
+    BTViewController *btvc = [[BTViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:btvc animated:YES];
+    [btvc showOverlay];
 }
 
 - (void)didReceiveMemoryWarning

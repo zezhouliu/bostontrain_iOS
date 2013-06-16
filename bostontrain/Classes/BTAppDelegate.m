@@ -7,8 +7,9 @@
 //
 
 #import "BTAppDelegate.h"
-
+#import "BTOverlay.h"
 #import "BTMasterViewController.h"
+#import "BTViewController.h"
 
 @implementation BTAppDelegate
 
@@ -17,8 +18,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 
+//    BTMasterViewController *masterViewController = [[BTMasterViewController alloc] initWithNibName:@"BTMasterViewController" bundle:nil];
+//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+    
     BTMasterViewController *masterViewController = [[BTMasterViewController alloc] initWithNibName:@"BTMasterViewController" bundle:nil];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+    
+    
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;
@@ -50,5 +56,29 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark - overlay methods
+- (void)showOverlayWithMessage:(NSString *) message
+{
+    NSLog(@"showOverlayMessage reached");
+    
+    if (self.overlay && self.overlay.superview) {
+        NSLog(@"Went to if statement");
+        self.overlay.activityLabel.text = message;
+    }
+    else {
+        NSLog(@"Went to else statement");
+        self.overlay = [[BTOverlay alloc] addOverlay:self.window labelString:message edgeLength:nil animated:YES];
+    }
+}
+
+- (void)hideOverlay:(BOOL)animated
+{
+    if (self.overlay && self.overlay.superview) {
+        [self.overlay hideOverlay:YES];
+    }
+    self.overlay = nil;
+}
+
 
 @end

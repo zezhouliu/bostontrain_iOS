@@ -7,7 +7,7 @@
 //
 
 #import "BTMasterViewController.h"
-
+#import "BTViewController.h"
 #import "BTDetailViewController.h"
 
 @interface BTMasterViewController () {
@@ -21,7 +21,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Master", @"Master");
+        self.title = NSLocalizedString(@"Boston T", @"Master");
     }
     return self;
 }
@@ -34,7 +34,11 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+
+    
 }
+
 
 - (void)didReceiveMemoryWarning
 {
