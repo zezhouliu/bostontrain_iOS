@@ -30,6 +30,8 @@
 		FA30B947176CF40900387D9B /* BTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B946176CF40900387D9B /* BTNavigationController.m */; };
 		FA30B94A176CFC3E00387D9B /* BTOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B949176CFC3E00387D9B /* BTOverlay.m */; };
 		FA30B94D176D2B3100387D9B /* BTNavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B94C176D2B3100387D9B /* BTNavigationItem.m */; };
+		FA30B951176D593400387D9B /* BTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B950176D593400387D9B /* BTHomeViewController.m */; };
+		FA30B955176E5D7E00387D9B /* BTJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B954176E5D7E00387D9B /* BTJSONParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,10 @@
 		FA30B949176CFC3E00387D9B /* BTOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTOverlay.m; sourceTree = "<group>"; };
 		FA30B94B176D2B3000387D9B /* BTNavigationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTNavigationItem.h; sourceTree = "<group>"; };
 		FA30B94C176D2B3100387D9B /* BTNavigationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTNavigationItem.m; sourceTree = "<group>"; };
+		FA30B94F176D593400387D9B /* BTHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTHomeViewController.h; path = Classes/BTHomeViewController.h; sourceTree = "<group>"; };
+		FA30B950176D593400387D9B /* BTHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTHomeViewController.m; path = Classes/BTHomeViewController.m; sourceTree = "<group>"; };
+		FA30B953176E5D7E00387D9B /* BTJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTJSONParser.h; sourceTree = "<group>"; };
+		FA30B954176E5D7E00387D9B /* BTJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTJSONParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +204,7 @@
 		FA30B935176CDBAE00387D9B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA30B94E176D58ED00387D9B /* Home */,
 				FA30B909176CD6CE00387D9B /* BTMasterViewController.h */,
 				FA30B90A176CD6CE00387D9B /* BTMasterViewController.m */,
 				FA30B90C176CD6CE00387D9B /* BTDetailViewController.h */,
@@ -224,6 +231,7 @@
 		FA30B93F176CF05500387D9B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				FA30B952176E5D0500387D9B /* JSON Parser */,
 				FA30B944176CF3AD00387D9B /* Navigation */,
 				FA30B943176CF39D00387D9B /* Web API */,
 			);
@@ -250,6 +258,24 @@
 				FA30B949176CFC3E00387D9B /* BTOverlay.m */,
 			);
 			name = Navigation;
+			sourceTree = "<group>";
+		};
+		FA30B94E176D58ED00387D9B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FA30B94F176D593400387D9B /* BTHomeViewController.h */,
+				FA30B950176D593400387D9B /* BTHomeViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		FA30B952176E5D0500387D9B /* JSON Parser */ = {
+			isa = PBXGroup;
+			children = (
+				FA30B953176E5D7E00387D9B /* BTJSONParser.h */,
+				FA30B954176E5D7E00387D9B /* BTJSONParser.m */,
+			);
+			name = "JSON Parser";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +399,8 @@
 				FA30B947176CF40900387D9B /* BTNavigationController.m in Sources */,
 				FA30B94A176CFC3E00387D9B /* BTOverlay.m in Sources */,
 				FA30B94D176D2B3100387D9B /* BTNavigationItem.m in Sources */,
+				FA30B951176D593400387D9B /* BTHomeViewController.m in Sources */,
+				FA30B955176E5D7E00387D9B /* BTJSONParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +573,7 @@
 				FA30B92E176CD6CE00387D9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA30B92F176CD6CE00387D9B /* Build configuration list for PBXNativeTarget "bostontrainTests" */ = {
 			isa = XCConfigurationList;
@@ -553,6 +582,7 @@
 				FA30B931176CD6CE00387D9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,7 +9,7 @@
 #import "BTAppDelegate.h"
 #import "BTOverlay.h"
 #import "BTMasterViewController.h"
-#import "BTViewController.h"
+#import "BTHomeViewController.h"
 
 @implementation BTAppDelegate
 
@@ -18,11 +18,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 
-//    BTMasterViewController *masterViewController = [[BTMasterViewController alloc] initWithNibName:@"BTMasterViewController" bundle:nil];
-//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
-    
     BTMasterViewController *masterViewController = [[BTMasterViewController alloc] initWithNibName:@"BTMasterViewController" bundle:nil];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+    
+//    BTHomeViewController *masterViewController = [[BTHomeViewController alloc] initWithNibName:nil bundle:nil];
+//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
     
     
     self.window.rootViewController = self.navigationController;

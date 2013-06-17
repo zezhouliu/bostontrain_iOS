@@ -27,8 +27,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"Boston T";
-        NSLog(@"Reached initialization");
     }
     return self;
 }
@@ -40,6 +38,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self addLeftButton];
+    [self addRightButton];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -97,8 +96,8 @@
 // Adds a button on the top left and right of nav bar
 - (void) setupNavigationBar
 {
-    [self addLeftButton];
-    [self addRightButton];
+//    [self addLeftButton];
+//    [self addRightButton];
 }
 
 // Adds left button with selector

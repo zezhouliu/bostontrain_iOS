@@ -88,61 +88,6 @@
     return self;
 }
 
-- (BTOverlay *) addOverlay:(UIView *)currentView labelString:(NSString *)labelString edgeLength:(NSNumber *)edgeLength animated:(BOOL)animated
-{
-    NSLog(@"Reached method");
-    vt_gap = 10;
-    
-    self.frame = currentView.bounds;
-    self.alpha = 0;
-    
-    // Create frame in center of currentView
-    [self makeFramingView:edgeLength];
-
-    // place indicator in center of framingView:
-    CGRect indicatorFrame = self.activityIndicator.frame;
-    indicatorFrame.origin.x = self.framingView.frame.origin.x + (self.framingView.frame.size.width - indicatorFrame.size.width) / 2;
-    indicatorFrame.origin.y = self.framingView.frame.origin.y + (self.framingView.frame.size.height - indicatorFrame.size.height) / 2;
-    self.activityIndicator.frame = indicatorFrame;
-    
-    // if labelString, show it as message
-    if (labelString)
-    {
-        self.activityLabel.text = labelString;
-        self.activityLabel.hidden = NO;
-    }
-    else {
-        self.activityLabel.hidden = YES;
-    }
-    
-    CGSize textSize = [self.activityLabel.text sizeWithFont:self.activityLabel.font];
-    self.activityLabel.frame = CGRectMake(self.activityLabel.frame.origin.x, indicatorFrame.origin.y + indicatorFrame.size.height + vt_gap, indicatorFrame.size.width, textSize.height);
-    
-    // add components
-    [self addSubview:self.framingView];
-    [self addSubview:self.activityLabel];
-    [self addSubview:self.activityIndicator];
-    
-    // add overlay to currentView
-    [currentView addSubview:self];
-    
-    // if animated, add the video
-    if (animated) {
-        
-        [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^(void) {
-            self.alpha = 1;
-        }completion:^(BOOL completion) {
-            //add completion block
-        }];
-    }
-    else {
-        self.alpha = 1;
-    }
-    
-    NSLog(@"trying to return");
-    
-    return self;
-}
 
 // set-up subviews
 - (void) layoutSubviews
@@ -215,6 +160,8 @@
     return _activityLabel;
 }
 
+// lazy load the framing view
+// the framing view is the gray container holding the loading spinner
 - (UIView *) framingView
 {
     if (!_framingView)
@@ -229,6 +176,8 @@
     
     return _framingView;
 }
+
+
 // hide the overlay by removing from superView
 - (void) hideOverlay: (BOOL)animated
 {
