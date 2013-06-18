@@ -10,4 +10,6 @@
 
 @interface BTRequest : NSOperation
 
+
++ (NSString *) getArrivalsDeparturesWithStop:(NSString *)stopId route:(NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime;
 @end

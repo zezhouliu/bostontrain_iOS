@@ -10,10 +10,14 @@
 
 @interface BTJSONParser : NSObject
 
-
+// properties
+@property (nonatomic, strong) NSDictionary *resultDictionary;
+@property (nonatomic, strong) NSError *error;
 
 // instance methods
-- (NSDictionary *) fetchedData:(NSData *)responseData;
+- (void) fetchedData:(NSData *)responseData;
+
+// class methods
 - (void) getDataWithAPI:(NSString *) urlString;
 
 @end

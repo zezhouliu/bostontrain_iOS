@@ -19,17 +19,19 @@
     dispatch_async(BT_REQUEST_QUEUE, ^{
         NSData* data = [NSData dataWithContentsOfURL:
                         [NSURL URLWithString:urlString]];
-        [self performSelectorOnMainThread:@selector(fetchedData:)
-                               withObject:data waitUntilDone:YES];
+        [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
+        
     });
     
 }
 
-- (NSDictionary *) fetchedData:(NSData *)responseData
+- (void) fetchedData:(NSData *)responseData
 {
     NSError *error;
+    
     NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
-
-    return jsonDictionary;
+    self.resultDictionary = jsonDictionary;
+    NSLog(@"%@", self.resultDictionary);
+    self.error = error;
 }
 @end

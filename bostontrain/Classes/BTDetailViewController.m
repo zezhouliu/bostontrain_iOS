@@ -8,6 +8,8 @@
 
 #import "BTDetailViewController.h"
 #import "BTViewController.h"
+#import "BTRequest.h"
+#import "BTJSONParser.h"
 
 @interface BTDetailViewController ()
 - (void)configureView;
@@ -32,7 +34,13 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        NSString *url = [BTRequest getArrivalsDeparturesWithStop:@"Back Bay" route:@"" direction:@"" datetime:@""];
+        NSLog(@"%@", url);
+        
+        BTJSONParser *btparser = [[BTJSONParser alloc] init];
+        [btparser getDataWithAPI:url];
+        
+//        self.detailDescriptionLabel.text = [self.detailItem description];
     }
 }
 
