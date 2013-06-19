@@ -38,7 +38,9 @@
         NSLog(@"%@", url);
         
         BTJSONParser *btparser = [[BTJSONParser alloc] init];
-        [btparser getDataWithAPI:url];
+//        [btparser getDataWithAPI:url];
+        
+        [btparser getDataWithAPI:@"http://developer.mbta.com/lib/rthr/red.json"];
         
 //        self.detailDescriptionLabel.text = [self.detailItem description];
     }
