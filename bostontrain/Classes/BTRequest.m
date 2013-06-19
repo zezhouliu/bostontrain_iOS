@@ -22,6 +22,11 @@ NSString *const apiKey = @"api_key=zrrEkN_21UibjOWgNuvfwg";
 // Request Strings
 NSString *const scheduleByStop = @"schedulebystop?";
 NSString *const stopByLocation = @"stopsbylocation?";
+NSString *const serverTime = @"servertime?";
+NSString *const routes = @"routes?";
+NSString *const routesByStop = @"routesbystop?";
+NSString *const stopsByRoute = @"stopsbyroute?";
+NSString *const stopsByLocation = @"stopsbylocation?";
 
 
 // Param Strings
@@ -29,6 +34,8 @@ NSString *const stopGTFS = @"&stop=";
 NSString *const routeGTFS = @"&route=";
 NSString *const directionGTFS = @"&direction=";
 NSString *const epochTime = @"&datetime=";
+NSString *const lon = @"&lon=";
+NSString *const lat = @"&lat=";
 
 @implementation BTRequest
 
@@ -54,7 +61,7 @@ NSString *const epochTime = @"&datetime=";
 // get string of URL of Arrivals and Departures with stopID
 // REQUIRED: stopId
 // OPTIONAL: route, direction, datetime
-+ (NSString *) getArrivalsDeparturesWithStop:(NSString *)stopId route:(NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime
+- (NSString *) getArrivalsDeparturesWithStop:(NSString *)stopId route:(NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime
 {
     // stopId is REQUIRED
     if (!stopId){
@@ -76,25 +83,92 @@ NSString *const epochTime = @"&datetime=";
     
 }
 
-- (id) initWithURL: (NSString *) urlString
+// get string of URL for serverTime
+// REQUIRED: none
+// OPTIONAL: none
+- (NSString *) getServerTime
 {
-    self = [super init];
-    if (self) {
-        
-        // custom initalization
-        self.responseData = [NSMutableData data];
-        
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-        
-        [request setHTTPMethod:@"GET"];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        
-        [request setHTTPBody:self.responseData];
-        self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        
-        
+    return [NSString stringWithFormat:@"%@%@%@", baseString, serverTime, apiKey];
+}
+
+// get route list
+// REQUIRED: none
+// OPTIONAL: none
+- (NSString *) getRouteList
+{
+    return [NSString stringWithFormat:@"%@%@%@", baseString, routes, apiKey];
+}
+
+/* * * * * * * * * * * *
+ * get route list by stop
+ * REQUIRED: stopId
+ * OPTIONAL: none
+ * * * * * * * * * * * */
+- (NSString *) getRouteByStop: (NSString *) stopId
+ {
+     if (!stopId){
+         return @"";
+     }
+     
+    return [NSString stringWithFormat:@"%@%@%@%@%@", baseString, routesByStop, apiKey, stopGTFS, stopId];
+ }
+ 
+
+/* * * * * * * * * * * *
+ * get stop list by route
+ * REQUIRED: route
+ * OPTIONAL: none
+ * * * * * * * * * * * */
+- (NSString *) getStopListByRoute: (NSString *) route
+{
+    if (!route){
+        return @"";
     }
     
+    return [NSString stringWithFormat:@"%@%@%@%@%@", baseString, stopsByRoute, apiKey, routeGTFS, route];
+}
+
+/* * * * * * * * * * * *
+ * get route list by stop
+ * REQUIRED: latitude, longtitude
+ * OPTIONAL: none
+ * * * * * * * * * * * */
+- (NSString *) getStopListByUserLocation: (NSString *) latitude longtitude: (NSString *)longitude
+{
+    if (!longitude || !latitude){
+        return @"";
+    }
+    
+    return [NSString stringWithFormat:@"%@%@%@%@%@%@%@", baseString, stopsByLocation, apiKey, lat, latitude, lon, longitude];
+}
+
+
+- (id) init {
+    self = [super init];
+    if (self) {
+        // custom initialization
+    }
+    
+    return self;
+}
+
+
+
+
+
+
+- (id) queryURL: (NSString *) urlString
+{
+    
+    self.responseData = [NSMutableData data];
+        
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+        
+    [request setHTTPMethod:@"GET"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+
     return self;
 }
 

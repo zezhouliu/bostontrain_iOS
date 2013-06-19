@@ -13,6 +13,14 @@
 @property (nonatomic, strong) NSMutableData *responseData;
 @property (nonatomic, strong) NSURLConnection *connection;
 
-- (id) initWithURL: (NSString *) urlString;
-+ (NSString *) getArrivalsDeparturesWithStop:(NSString *)stopId route:(NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime;
+- (id) init;
+- (id) queryURL: (NSString *) urlString;
+
+
+// API calls
+- (NSString *) getArrivalsDeparturesWithStop:(NSString *)stopId route:(NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime;
+- (NSString *) getServerTime;
+- (NSString *) getRouteByStop: (NSString *) stopId;
+- (NSString *) getRouteList;
+
 @end

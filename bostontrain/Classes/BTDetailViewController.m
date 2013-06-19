@@ -34,10 +34,9 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        NSString *url = [BTRequest getArrivalsDeparturesWithStop:@"Back Bay" route:@"" direction:@"" datetime:@""];
-        NSLog(@"%@", url);
         
-        BTRequest *request = [[BTRequest alloc] initWithURL:@"http://realtime.mbta.com/developer/api/v1/alerts?api_key=zrrEkN_21UibjOWgNuvfwg"];
+        
+       
         
         
         
@@ -56,6 +55,17 @@
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
     
+    [self testAPICall];
+    
+}
+
+- (void) testAPICall
+{
+    BTRequest *request = [[BTRequest alloc] init];
+    //        NSString *url = [request getArrivalsDeparturesWithStop:@"Back Bay" route:@"" direction:@"" datetime:@""];
+    NSString *url = [request getRouteByStop:@"70065"];
+    NSLog(@"%@", url);
+    [request queryURL:url];
 }
 
 
