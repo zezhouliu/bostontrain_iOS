@@ -37,10 +37,14 @@
         NSString *url = [BTRequest getArrivalsDeparturesWithStop:@"Back Bay" route:@"" direction:@"" datetime:@""];
         NSLog(@"%@", url);
         
-        BTJSONParser *btparser = [[BTJSONParser alloc] init];
+        BTRequest *request = [[BTRequest alloc] initWithURL:@"http://realtime.mbta.com/developer/api/v1/alerts?api_key=zrrEkN_21UibjOWgNuvfwg"];
+        
+        
+        
+//        BTJSONParser *btparser = [[BTJSONParser alloc] init];
 //        [btparser getDataWithAPI:url];
         
-        [btparser getDataWithAPI:@"http://developer.mbta.com/lib/rthr/red.json"];
+//        [btparser getDataWithAPI:@"http://developer.mbta.com/lib/rthr/red.json"];
         
 //        self.detailDescriptionLabel.text = [self.detailItem description];
     }

@@ -10,6 +10,9 @@
 
 @interface BTRequest : NSOperation
 
+@property (nonatomic, strong) NSMutableData *responseData;
+@property (nonatomic, strong) NSURLConnection *connection;
 
+- (id) initWithURL: (NSString *) urlString;
 + (NSString *) getArrivalsDeparturesWithStop:(NSString *)stopId route:(NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime;
 @end
