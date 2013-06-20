@@ -21,18 +21,22 @@ NSString *const apiKey = @"api_key=zrrEkN_21UibjOWgNuvfwg";
 
 // Request Strings
 NSString *const scheduleByStop = @"schedulebystop?";
+NSString *const scheduleByRoute = @"schedulebyroute?";
+NSString *const scheduleByTrip = @"schedulebytrip?";
 NSString *const stopByLocation = @"stopsbylocation?";
 NSString *const serverTime = @"servertime?";
 NSString *const routes = @"routes?";
 NSString *const routesByStop = @"routesbystop?";
 NSString *const stopsByRoute = @"stopsbyroute?";
 NSString *const stopsByLocation = @"stopsbylocation?";
+NSString *const alerts = @"alerts?";
 
 
 // Param Strings
 NSString *const stopGTFS = @"&stop=";
 NSString *const routeGTFS = @"&route=";
 NSString *const directionGTFS = @"&direction=";
+NSString *const tripGTFS = @"&trip=";
 NSString *const epochTime = @"&datetime=";
 NSString *const lon = @"&lon=";
 NSString *const lat = @"&lat=";
@@ -58,37 +62,22 @@ NSString *const lat = @"&lat=";
     return params;
 }
 
-// get string of URL of Arrivals and Departures with stopID
-// REQUIRED: stopId
-// OPTIONAL: route, direction, datetime
-- (NSString *) getArrivalsDeparturesWithStop:(NSString *)stopId route:(NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime
-{
-    // stopId is REQUIRED
-    if (!stopId){
-        return @"";
-    }
-    
-    // append urlParams if given
-    if ([route length] > 0) {
-        route = [NSString stringWithFormat:@"%@%@", routeGTFS, route];
-    }
-    if ([direction length] > 0) {
-        direction = [NSString stringWithFormat:@"%@%@", directionGTFS, direction];
-    }
-    if ([datetime length] > 0) {
-        datetime = [NSString stringWithFormat:@"%@%@", epochTime, datetime];
-    }
-    
-    return [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@", baseString, scheduleByStop, apiKey, stopGTFS, stopId, route, direction, datetime];
-    
-}
-
 // get string of URL for serverTime
 // REQUIRED: none
 // OPTIONAL: none
 - (NSString *) getServerTime
 {
     return [NSString stringWithFormat:@"%@%@%@", baseString, serverTime, apiKey];
+}
+
+/* * * * * * * * * * *
+ * get the alerts
+ * REQUIRED: none
+ * OPTIONAL: none
+ * * * * * * * * * * */
+- (NSString *) getAlerts
+{
+    return [NSString stringWithFormat:@"%@%@%@", baseString, alerts, apiKey];
 }
 
 // get route list
@@ -142,6 +131,81 @@ NSString *const lat = @"&lat=";
     return [NSString stringWithFormat:@"%@%@%@%@%@%@%@", baseString, stopsByLocation, apiKey, lat, latitude, lon, longitude];
 }
 
+/* * * * * * * * * * * *
+ * get scheduled arrivals and departures by stop
+ * REQUIRED: stop
+ * OPTIONAL: route, direction, datetime
+ * * * * * * * * * * * */
+- (NSString *) getArrivalsDeparturesWithStop:(NSString *)stopId route:(NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime
+{
+    // stopId is REQUIRED
+    if (!stopId){
+        return @"";
+    }
+    
+    // append urlParams if given
+    if ([route length] > 0) {
+        route = [NSString stringWithFormat:@"%@%@", routeGTFS, route];
+    }
+    if ([direction length] > 0) {
+        direction = [NSString stringWithFormat:@"%@%@", directionGTFS, direction];
+    }
+    if ([datetime length] > 0) {
+        datetime = [NSString stringWithFormat:@"%@%@", epochTime, datetime];
+    }
+    
+    return [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@", baseString, scheduleByStop, apiKey, stopGTFS, stopId, route, direction, datetime];
+    
+}
+
+
+/* * * * * * * * * * * *
+ * get scheduled arrivals and departures by route
+ * REQUIRED: route
+ * OPTIONAL: direction, datetime
+ * * * * * * * * * * * */
+- (NSString *) getArrivalsDeparturesWithRoute:(NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime
+{
+    // stopId is REQUIRED
+    if (!route){
+        return @"";
+    }
+    
+    // append urlParams if given
+    if ([direction length] > 0) {
+        direction = [NSString stringWithFormat:@"%@%@", directionGTFS, direction];
+    }
+    if ([datetime length] > 0) {
+        datetime = [NSString stringWithFormat:@"%@%@", epochTime, datetime];
+    }
+    
+    return [NSString stringWithFormat:@"%@%@%@%@%@%@%@", baseString, scheduleByRoute, apiKey, routeGTFS, route, direction, datetime];
+    
+}
+
+/* * * * * * * * * * * *
+ * get scheduled arrivals and departures by trip
+ * REQUIRED: route
+ * OPTIONAL: datetime
+ * * * * * * * * * * * */
+- (NSString *) getArrivalsDeparturesWithTrip:(NSString *)trip datetime:(NSString *)datetime
+{
+    // stopId is REQUIRED
+    if (!trip){
+        return @"";
+    }
+    
+    // append urlParams if given
+    if ([datetime length] > 0) {
+        datetime = [NSString stringWithFormat:@"%@%@", epochTime, datetime];
+    }
+    
+    return [NSString stringWithFormat:@"%@%@%@%@%@%@", baseString, scheduleByTrip, apiKey, tripGTFS, trip, datetime];
+    
+}
+
+
+
 
 - (id) init {
     self = [super init];
@@ -153,10 +217,10 @@ NSString *const lat = @"&lat=";
 }
 
 
-
-
-
-
+/* * * * * * * * * *
+ * queryURL: Makes an API call with a given URL string
+ * REQUIRED: urlString
+ * * * * * * * * * */
 - (id) queryURL: (NSString *) urlString
 {
     
