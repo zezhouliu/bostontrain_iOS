@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "BTRequest.h"
 #import "BTOverlay.h"
+#import "BTNavigationItem.h"
+#import "BTNavigationController.h"
+#import "BTRequest.h"
+#import "BTAppDelegate.h"
 
 @interface BTViewController : UIViewController
 

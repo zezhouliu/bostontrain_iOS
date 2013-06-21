@@ -12,7 +12,8 @@
 
 
 // visible methods
-- (void) setLeftBarButtonItemWithAction:(id) target action:(SEL)action;
-- (void) setRightBarButtonItemWithAction:(id) target action:(SEL)action;
+
+- (void) setRightBarButtonItemWithActionAndTitle:(id) target title:(NSString *)title action:(SEL)action;
+- (void) setLeftBarButtonItemWithActionAndTitle:(id)target title:(NSString *)title action:(SEL)action;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "BTViewController.h"
+#import "BTView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface BTHomeViewController : BTViewController
 

@@ -7,12 +7,9 @@
 //
 
 #import "BTViewController.h"
-#import "BTNavigationController.h"
-#import "BTRequest.h"
-#import "BTAppDelegate.h"
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "BTNavigationItem.h"
+
 
 @interface BTViewController ()
 
@@ -37,8 +34,6 @@
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self addLeftButton];
-    [self addRightButton];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -97,19 +92,19 @@
 - (void) setupNavigationBar
 {
 //    [self addLeftButton];
-//    [self addRightButton];
+    [self addRightButton];
 }
 
-// Adds left button with selector
-- (void) addLeftButton
-{
-    [self.navigationItem setLeftBarButtonItemWithAction:self action:@selector(leftButtonClicked:)];
-}
+//// Adds left button with selector
+//- (void) addLeftButton
+//{
+//    [self.navigationItem setLeftBarButtonItemWithActionAndTitle:self title:@"Left Button" action:@selector(leftButtonClicked:)];
+//}
 
 // Adds right button with selector
 - (void) addRightButton
 {
-    [self.navigationItem setRightBarButtonItemWithAction:self action:@selector(rightButtonClicked:)];
+    [self.navigationItem setRightBarButtonItemWithActionAndTitle:self title:@"Right Button" action:@selector(rightButtonClicked:)];
 }
 
 // leftButtonClicked defaults to back

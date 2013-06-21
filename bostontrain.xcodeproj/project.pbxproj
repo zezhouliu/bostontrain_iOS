@@ -32,6 +32,10 @@
 		FA30B94D176D2B3100387D9B /* BTNavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B94C176D2B3100387D9B /* BTNavigationItem.m */; };
 		FA30B951176D593400387D9B /* BTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B950176D593400387D9B /* BTHomeViewController.m */; };
 		FA30B955176E5D7E00387D9B /* BTJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B954176E5D7E00387D9B /* BTJSONParser.m */; };
+		FA9304C2177424F300BAA7DF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9304C1177424F300BAA7DF /* QuartzCore.framework */; };
+		FA9304C417742D0500BAA7DF /* red_button.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9304C317742D0500BAA7DF /* red_button.png */; };
+		FA94791917741DA200C03454 /* BTView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94791817741DA200C03454 /* BTView.m */; };
+		FAB86D191772C47600D22282 /* BTAlertsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB86D181772C47600D22282 /* BTAlertsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +88,12 @@
 		FA30B950176D593400387D9B /* BTHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTHomeViewController.m; path = Classes/BTHomeViewController.m; sourceTree = "<group>"; };
 		FA30B953176E5D7E00387D9B /* BTJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTJSONParser.h; sourceTree = "<group>"; };
 		FA30B954176E5D7E00387D9B /* BTJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTJSONParser.m; sourceTree = "<group>"; };
+		FA9304C1177424F300BAA7DF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FA9304C317742D0500BAA7DF /* red_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = red_button.png; path = bostontrain/images/red_button.png; sourceTree = "<group>"; };
+		FA94791717741DA100C03454 /* BTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTView.h; path = Classes/BTView.h; sourceTree = "<group>"; };
+		FA94791817741DA200C03454 /* BTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTView.m; path = Classes/BTView.m; sourceTree = "<group>"; };
+		FAB86D171772C47600D22282 /* BTAlertsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTAlertsViewController.h; path = Classes/BTAlertsViewController.h; sourceTree = "<group>"; };
+		FAB86D181772C47600D22282 /* BTAlertsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTAlertsViewController.m; path = Classes/BTAlertsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9304C2177424F300BAA7DF /* QuartzCore.framework in Frameworks */,
 				FA30B8F2176CD6CD00387D9B /* UIKit.framework in Frameworks */,
 				FA30B8F4176CD6CD00387D9B /* Foundation.framework in Frameworks */,
 				FA30B8F6176CD6CD00387D9B /* CoreGraphics.framework in Frameworks */,
@@ -113,6 +124,8 @@
 		FA30B8E5176CD6CD00387D9B = {
 			isa = PBXGroup;
 			children = (
+				FA9304C317742D0500BAA7DF /* red_button.png */,
+				FA9304C1177424F300BAA7DF /* QuartzCore.framework */,
 				FA30B8F7176CD6CD00387D9B /* bostontrain */,
 				FA30B921176CD6CE00387D9B /* bostontrainTests */,
 				FA30B8F0176CD6CD00387D9B /* Frameworks */,
@@ -213,6 +226,8 @@
 				FA30B939176CDD9C00387D9B /* BTDetailViewController.xib */,
 				FA30B93B176CDE4000387D9B /* BTViewController.h */,
 				FA30B93C176CDE4000387D9B /* BTViewController.m */,
+				FA94791717741DA100C03454 /* BTView.h */,
+				FA94791817741DA200C03454 /* BTView.m */,
 			);
 			name = Views;
 			path = ..;
@@ -265,6 +280,8 @@
 			children = (
 				FA30B94F176D593400387D9B /* BTHomeViewController.h */,
 				FA30B950176D593400387D9B /* BTHomeViewController.m */,
+				FAB86D171772C47600D22282 /* BTAlertsViewController.h */,
+				FAB86D181772C47600D22282 /* BTAlertsViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -351,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA30B8FC176CD6CE00387D9B /* InfoPlist.strings in Resources */,
+				FA9304C417742D0500BAA7DF /* red_button.png in Resources */,
 				FA30B904176CD6CE00387D9B /* Default.png in Resources */,
 				FA30B906176CD6CE00387D9B /* Default@2x.png in Resources */,
 				FA30B908176CD6CE00387D9B /* Default-568h@2x.png in Resources */,
@@ -401,6 +419,8 @@
 				FA30B94D176D2B3100387D9B /* BTNavigationItem.m in Sources */,
 				FA30B951176D593400387D9B /* BTHomeViewController.m in Sources */,
 				FA30B955176E5D7E00387D9B /* BTJSONParser.m in Sources */,
+				FAB86D191772C47600D22282 /* BTAlertsViewController.m in Sources */,
+				FA94791917741DA200C03454 /* BTView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,13 +10,19 @@
 
 @implementation UINavigationItem (BT)
 
-- (void)setLeftBarButtonItemWithAction:(id)target action:(SEL)action
+- (void)setLeftBarButtonItemWithActionAndTitle:(id)target title:(NSString *)title action:(SEL)action
 {
-    self.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:target action:action];
+    self.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:target action:action];
+//    self.leftBarButtonItem.target = target;
+//    self.leftBarButtonItem.action = action;
 }
 
-- (void)setRightBarButtonItemWithAction:(id)target action:(SEL)action
+- (void)setRightBarButtonItemWithActionAndTitle:(id)target title:(NSString *)title action:(SEL)action
 {
-    self.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:target action:action];
+    self.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:target action:action];
+//    self.rightBarButtonItem = [[UIBarButtonItem alloc] init];
+//    self.rightBarButtonItem.target = target;
+//    self.rightBarButtonItem.action = action;
 }
+
 @end
