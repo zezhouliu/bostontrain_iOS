@@ -12,4 +12,9 @@
 
 @interface BTHomeViewController : BTViewController
 
+@property (nonatomic, strong) UIButton *redLineButton;
+@property (nonatomic, strong) UIButton *orangeLineButton;
+@property (nonatomic, strong) UIButton *greenLineButton;
+@property (nonatomic, strong) UIButton *blueLineButton;
+
 @end

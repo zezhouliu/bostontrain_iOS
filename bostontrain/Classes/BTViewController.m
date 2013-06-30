@@ -95,7 +95,7 @@
     [self addRightButton];
 }
 
-//// Adds left button with selector
+// Adds left button with selector
 //- (void) addLeftButton
 //{
 //    [self.navigationItem setLeftBarButtonItemWithActionAndTitle:self title:@"Left Button" action:@selector(leftButtonClicked:)];

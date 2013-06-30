@@ -27,7 +27,7 @@
 
 // Navigation Bar
 - (void) setupNavigationBar;
-- (void) addLeftButton;
+//- (void) addLeftButton;
 - (void) addRightButton;
 - (void) leftButtonClicked: (id) sender;
 - (void) rightButtonClicked: (id) sender;

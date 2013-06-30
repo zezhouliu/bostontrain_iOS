@@ -36,6 +36,9 @@
 		FA9304C417742D0500BAA7DF /* red_button.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9304C317742D0500BAA7DF /* red_button.png */; };
 		FA94791917741DA200C03454 /* BTView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA94791817741DA200C03454 /* BTView.m */; };
 		FAB86D191772C47600D22282 /* BTAlertsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB86D181772C47600D22282 /* BTAlertsViewController.m */; };
+		FACC8A01177FE5B20070739C /* blue_button.png in Resources */ = {isa = PBXBuildFile; fileRef = FACC89FE177FE5B20070739C /* blue_button.png */; };
+		FACC8A02177FE5B20070739C /* green_button.png in Resources */ = {isa = PBXBuildFile; fileRef = FACC89FF177FE5B20070739C /* green_button.png */; };
+		FACC8A03177FE5B20070739C /* orange_button.png in Resources */ = {isa = PBXBuildFile; fileRef = FACC8A00177FE5B20070739C /* orange_button.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +97,9 @@
 		FA94791817741DA200C03454 /* BTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTView.m; path = Classes/BTView.m; sourceTree = "<group>"; };
 		FAB86D171772C47600D22282 /* BTAlertsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTAlertsViewController.h; path = Classes/BTAlertsViewController.h; sourceTree = "<group>"; };
 		FAB86D181772C47600D22282 /* BTAlertsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTAlertsViewController.m; path = Classes/BTAlertsViewController.m; sourceTree = "<group>"; };
+		FACC89FE177FE5B20070739C /* blue_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blue_button.png; path = bostontrain/images/blue_button.png; sourceTree = "<group>"; };
+		FACC89FF177FE5B20070739C /* green_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = green_button.png; path = bostontrain/images/green_button.png; sourceTree = "<group>"; };
+		FACC8A00177FE5B20070739C /* orange_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orange_button.png; path = bostontrain/images/orange_button.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,9 @@
 		FA30B8E5176CD6CD00387D9B = {
 			isa = PBXGroup;
 			children = (
+				FACC89FE177FE5B20070739C /* blue_button.png */,
+				FACC89FF177FE5B20070739C /* green_button.png */,
+				FACC8A00177FE5B20070739C /* orange_button.png */,
 				FA9304C317742D0500BAA7DF /* red_button.png */,
 				FA9304C1177424F300BAA7DF /* QuartzCore.framework */,
 				FA30B8F7176CD6CD00387D9B /* bostontrain */,
@@ -367,6 +376,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FACC8A01177FE5B20070739C /* blue_button.png in Resources */,
+				FACC8A02177FE5B20070739C /* green_button.png in Resources */,
+				FACC8A03177FE5B20070739C /* orange_button.png in Resources */,
 				FA30B8FC176CD6CE00387D9B /* InfoPlist.strings in Resources */,
 				FA9304C417742D0500BAA7DF /* red_button.png in Resources */,
 				FA30B904176CD6CE00387D9B /* Default.png in Resources */,
