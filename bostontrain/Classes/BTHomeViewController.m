@@ -18,6 +18,11 @@
 
 @implementation BTHomeViewController
 
+/* * * * * * * * * *
+ * Initialization: Try NOT to use nib files
+ * params: none
+ * returns: BTHomeViewController
+ * * * * * * * * * */
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,19 +33,59 @@
     return self;
 }
 
+/* * * * * * * * * *
+ * viewDidLoad: As our view loads, we need to setup several components
+ * Components: NavigationBar, SearchBar, OptionButtons
+ * * * * * * * * * */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
     [self setupNavigationBar];
+    [self setupRoutePlanner];
+    [self setupSearchBar];
     [self setupOptionButtons];
 //    [self addAlertSection];
     
 }
 
 
-# pragma mark - subviews
+# pragma mark - page loading
+/* * * * * * * * *
+ * setupRoutePlanner sets up 2 textfields to query trip planner
+ * params: none
+ * returns void
+ * * * * * * * * */
+- (void) setupRoutePlanner
+{
+    self.routePlannerBar.frame = CGRectMake(0, 0, self.view.frame.size.width, 100);
+    self.fromField.frame = CGRectMake(0, 0, self.view.frame.size.width / 2, 50);
+    self.toField.frame = CGRectMake(self.fromField.frame.origin.x + self.fromField.frame.size.width,
+                                    self.fromField.frame.origin.y, self.fromField.frame.size.width, self.fromField.frame.size.height);
+}
+
+
+
+/* * * * * * * * *
+ * setupSearchBar sets up the search bar
+ * params: none
+ * returns void
+ * * * * * * * * */
+- (void) setupSearchBar
+{
+    
+}
+
+
+
+/* * * * * * * * *
+ * setupOptionButtons generates our buttons that allows users
+ *     to choose which train line they want information about
+ *     Currently supports: red, blue, orange, green
+ * params: none
+ * returns void
+ * * * * * * * * */
 - (void) setupOptionButtons
 {
     
@@ -74,7 +119,13 @@
     
 }
 
-// Lazy load the views by allocating for them only when they do not already exist
+# pragma mark - subviews
+/* * * * * * *
+ * In this section, we lazy load our subviews
+ * by only allocating memory for them if they do not already exist
+ * * * * * * */
+
+
 - (UIButton *) redLineButton
 {
     if (!_redLineButton) {
