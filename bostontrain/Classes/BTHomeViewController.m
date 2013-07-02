@@ -43,7 +43,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor purpleColor];
+//    self.view.backgroundColor = [UIColor purpleColor];
     
     [self setupNavigationBar];
     [self setupRoutePlanner];
@@ -62,10 +62,12 @@
  * * * * * * * * */
 - (void) setupRoutePlanner
 {
-    self.routePlannerBar.frame = CGRectMake(0, 0, self.view.frame.size.width, 100);
+    self.routePlannerBar.frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, 100);
     self.fromField.frame = CGRectMake(0, 0, self.view.frame.size.width / 2, 50);
     self.toField.frame = CGRectMake(self.fromField.frame.origin.x + self.fromField.frame.size.width,
                                     self.fromField.frame.origin.y, self.fromField.frame.size.width, self.fromField.frame.size.height);
+    self.routePlannerBar.backgroundColor = [UIColor sunflowerColor];
+    [self.view addSubview:self.routePlannerBar];
 }
 
 
@@ -93,7 +95,8 @@
 {
     
     // redLine button on top left
-    self.redLineButton.frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height + 20, self.view.frame.size.width / 2, self.view.frame.size.height / 2 - 50);
+//    self.redLineButton.frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height + 20, self.view.frame.size.width / 2, self.view.frame.size.height / 2 - 50);
+    self.redLineButton.frame = CGRectMake(0, self.routePlannerBar.frame.size.height, self.view.frame.size.width / 2, self.view.frame.size.height / 2 - 50);
     [self.redLineButton addTarget:self action:@selector(redButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.redLineButton];
     
@@ -143,15 +146,24 @@
  * by only allocating memory for them if they do not already exist
  * * * * * * */
 
+- (BTView *) routePlannerBar
+{
+    if (!_routePlannerBar) {
+        _routePlannerBar = [[BTView alloc] initWithFrame:CGRectZero];
+    }
+    
+    return _routePlannerBar;
+}
 
 - (FUIButton *) redLineButton
 {
     if (!_redLineButton) {
         _redLineButton = [[FUIButton alloc] initWithFrame:CGRectZero];
+        _redLineButton.backgroundColor = [UIColor alizarinColor];
         _redLineButton.buttonColor = [UIColor alizarinColor];
         _redLineButton.shadowColor = [UIColor pomegranateColor];
-        _redLineButton.shadowHeight = 3.0f;
-        _redLineButton.cornerRadius = 6.0f;
+        _redLineButton.shadowHeight = 5.0f;
+        _redLineButton.cornerRadius = 0.0f;
         _redLineButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
         [_redLineButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
         [_redLineButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
@@ -165,10 +177,11 @@
 {
     if (!_blueLineButton) {
         _blueLineButton = [[FUIButton alloc] initWithFrame:CGRectZero];
+        _blueLineButton.backgroundColor = [UIColor peterRiverColor];
         _blueLineButton.buttonColor = [UIColor peterRiverColor];
         _blueLineButton.shadowColor = [UIColor belizeHoleColor];
-        _blueLineButton.shadowHeight = 3.0f;
-        _blueLineButton.cornerRadius = 6.0f;
+        _blueLineButton.shadowHeight = 5.0f;
+        _blueLineButton.cornerRadius = 0.0f;
         _blueLineButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
         [_blueLineButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
         [_blueLineButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
@@ -181,11 +194,11 @@
 {
     if (!_greenLineButton) {
         _greenLineButton = [[FUIButton alloc] initWithFrame:CGRectZero];
-        _greenLineButton = [[FUIButton alloc] initWithFrame:CGRectZero];
+        _greenLineButton.backgroundColor = [UIColor emerlandColor];
         _greenLineButton.buttonColor = [UIColor emerlandColor];
         _greenLineButton.shadowColor = [UIColor nephritisColor];
-        _greenLineButton.shadowHeight = 3.0f;
-        _greenLineButton.cornerRadius = 6.0f;
+        _greenLineButton.shadowHeight = 5.0f;
+        _greenLineButton.cornerRadius = 0.0f;
         _greenLineButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
         [_greenLineButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
         [_greenLineButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
@@ -198,11 +211,11 @@
 {
     if (!_orangeLineButton) {
         _orangeLineButton = [[FUIButton alloc] initWithFrame:CGRectZero];
-        _orangeLineButton = [[FUIButton alloc] initWithFrame:CGRectZero];
+        _orangeLineButton.backgroundColor = [UIColor carrotColor];
         _orangeLineButton.buttonColor = [UIColor carrotColor];
         _orangeLineButton.shadowColor = [UIColor pumpkinColor];
-        _orangeLineButton.shadowHeight = 3.0f;
-        _orangeLineButton.cornerRadius = 6.0f;
+        _orangeLineButton.shadowHeight = 5.0f;
+        _orangeLineButton.cornerRadius = 0.0f;
         _orangeLineButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
         [_orangeLineButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
         [_orangeLineButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];

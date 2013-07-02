@@ -31,7 +31,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    [self setupNavigationBar];
 	// Do any additional setup after loading the view.
+//    self.view.frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);
+//    self.view.layer.borderWidth = 10;
+//    self.view.layer.borderColor = [[UIColor purpleColor] CGColor];
     self.view.backgroundColor = [UIColor whiteColor];
     
 }
