@@ -42,6 +42,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.view.backgroundColor = [UIColor purpleColor];
+    
     [self setupNavigationBar];
     [self setupRoutePlanner];
     [self setupSearchBar];
@@ -90,7 +92,7 @@
 {
     
     // redLine button on top left
-    self.redLineButton.frame = CGRectMake(0, 0, self.view.frame.size.width / 2, self.view.frame.size.height / 2 - 50);
+    self.redLineButton.frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height + 20, self.view.frame.size.width / 2, self.view.frame.size.height / 2 - 50);
     [self.redLineButton setBackgroundImage:[[UIImage imageNamed:@"red_button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(30, 5, 30, 5)] forState:UIControlStateNormal];
     [self.redLineButton addTarget:self action:@selector(redButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.redLineButton];
@@ -119,6 +121,25 @@
     
 }
 
+- (void) redButtonClicked
+{
+    
+}
+
+- (void) blueButtonClicked
+{
+    
+}
+
+- (void) greenButtonClicked
+{
+    
+}
+
+- (void) orangeButtonClicked
+{
+    
+}
 # pragma mark - subviews
 /* * * * * * *
  * In this section, we lazy load our subviews

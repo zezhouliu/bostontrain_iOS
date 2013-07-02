@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4D5EE80B-05B4-4D30-8EA6-73F2A69809ED</string>
+	<key>IDESourceControlProjectName</key>
+	<string>bostontrain</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>17EC6EC4-4A1E-45DA-A1A9-29AA31B9A268</key>
+		<string>https://github.com/zezhouliu/bostontrain_iOS.git</string>
+		<key>A0FA8002-004A-43DB-91A9-8918DD554467</key>
+		<string>https://github.com/Grouper/FlatUIKit.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>bostontrain.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>17EC6EC4-4A1E-45DA-A1A9-29AA31B9A268</key>
+		<string>../..</string>
+		<key>A0FA8002-004A-43DB-91A9-8918DD554467</key>
+		<string>../../bostontrain/FlatUIKit</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/zezhouliu/bostontrain_iOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>17EC6EC4-4A1E-45DA-A1A9-29AA31B9A268</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>17EC6EC4-4A1E-45DA-A1A9-29AA31B9A268</string>
+			<key>IDESourceControlWCCName</key>
+			<string>bostontrain</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A0FA8002-004A-43DB-91A9-8918DD554467</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FlatUIKit</string>
+		</dict>
+	</array>
+</dict>
+</plist>

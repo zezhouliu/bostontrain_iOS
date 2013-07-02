@@ -22,4 +22,9 @@
 @property (nonatomic, strong) UIButton *blueLineButton;
 @property (nonatomic, strong) UISearchBar *searchBar;
 
+- (void) redButtonClicked;
+- (void) blueButtonClicked;
+- (void) orangeButtonClicked;
+- (void) greenButtonClicked;
+
 @end
