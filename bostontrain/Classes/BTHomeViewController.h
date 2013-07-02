@@ -8,6 +8,7 @@
 
 #import "BTViewController.h"
 #import "BTView.h"
+#import "FUIButton.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface BTHomeViewController : BTViewController
@@ -16,10 +17,10 @@
 @property (nonatomic, strong) UITextField *fromField;
 @property (nonatomic, strong) UITextField *toField;
 
-@property (nonatomic, strong) UIButton *redLineButton;
-@property (nonatomic, strong) UIButton *orangeLineButton;
-@property (nonatomic, strong) UIButton *greenLineButton;
-@property (nonatomic, strong) UIButton *blueLineButton;
+@property (nonatomic, strong) FUIButton *redLineButton;
+@property (nonatomic, strong) FUIButton *orangeLineButton;
+@property (nonatomic, strong) FUIButton *greenLineButton;
+@property (nonatomic, strong) FUIButton *blueLineButton;
 @property (nonatomic, strong) UISearchBar *searchBar;
 
 - (void) redButtonClicked;

@@ -9,6 +9,7 @@
 #import "BTHomeViewController.h"
 #import "BTAlertsViewController.h"
 #import <UIKit/UIKit.h>
+#import "FlatUIKit.h"
 
 @interface BTHomeViewController ()
 
@@ -93,7 +94,6 @@
     
     // redLine button on top left
     self.redLineButton.frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height + 20, self.view.frame.size.width / 2, self.view.frame.size.height / 2 - 50);
-    [self.redLineButton setBackgroundImage:[[UIImage imageNamed:@"red_button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(30, 5, 30, 5)] forState:UIControlStateNormal];
     [self.redLineButton addTarget:self action:@selector(redButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.redLineButton];
     
@@ -101,21 +101,18 @@
     self.blueLineButton.frame = CGRectMake(self.redLineButton.frame.origin.x + self.redLineButton.frame.size.width,
                                     self.redLineButton.frame.origin.y, self.view.frame.size.width - self.redLineButton.frame.size.width,
                                     self.redLineButton.frame.size.height);
-    [self.blueLineButton setBackgroundImage:[[UIImage imageNamed:@"blue_button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(30, 5, 30, 5)] forState:UIControlStateNormal];
     [self.blueLineButton addTarget:self action:@selector(blueButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.blueLineButton];
     
     // orange line button on the bottom left
     self.orangeLineButton.frame = CGRectMake(self.redLineButton.frame.origin.x, self.redLineButton.frame.origin.y + self.redLineButton.frame.size.height,
                                        self.redLineButton.frame.size.width, self.redLineButton.frame.size.height);
-    [self.orangeLineButton setBackgroundImage:[[UIImage imageNamed:@"orange_button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(30, 5, 30, 5)] forState:UIControlStateNormal];
     [self.orangeLineButton addTarget:self action:@selector(orangeButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.orangeLineButton];
     
     // green line button on the bottom right
     self.greenLineButton.frame = CGRectMake(self.orangeLineButton.frame.origin.x + self.orangeLineButton.frame.size.width, self.orangeLineButton.frame.origin.y,
-                                      self.blueLineButton.frame.size.width, self.orangeLineButton.frame.size.height);
-    [self.greenLineButton setBackgroundImage:[[UIImage imageNamed:@"green_button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(30, 5, 30, 5)] forState:UIControlStateNormal];
+                                      self.blueLineButton.frame.size.width, self.orangeLineButton.frame.size.height);   
     [self.greenLineButton addTarget:self action:@selector(greenButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.greenLineButton];
     
@@ -147,38 +144,68 @@
  * * * * * * */
 
 
-- (UIButton *) redLineButton
+- (FUIButton *) redLineButton
 {
     if (!_redLineButton) {
-        _redLineButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        _redLineButton = [[FUIButton alloc] initWithFrame:CGRectZero];
+        _redLineButton.buttonColor = [UIColor alizarinColor];
+        _redLineButton.shadowColor = [UIColor pomegranateColor];
+        _redLineButton.shadowHeight = 3.0f;
+        _redLineButton.cornerRadius = 6.0f;
+        _redLineButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+        [_redLineButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
+        [_redLineButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
         
     }
     
     return _redLineButton;
 }
 
-- (UIButton *) blueLineButton
+- (FUIButton *) blueLineButton
 {
     if (!_blueLineButton) {
-        _blueLineButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        _blueLineButton = [[FUIButton alloc] initWithFrame:CGRectZero];
+        _blueLineButton.buttonColor = [UIColor peterRiverColor];
+        _blueLineButton.shadowColor = [UIColor belizeHoleColor];
+        _blueLineButton.shadowHeight = 3.0f;
+        _blueLineButton.cornerRadius = 6.0f;
+        _blueLineButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+        [_blueLineButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
+        [_blueLineButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
     }
     
     return _blueLineButton;
 }
 
-- (UIButton *) greenLineButton
+- (FUIButton *) greenLineButton
 {
     if (!_greenLineButton) {
-        _greenLineButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        _greenLineButton = [[FUIButton alloc] initWithFrame:CGRectZero];
+        _greenLineButton = [[FUIButton alloc] initWithFrame:CGRectZero];
+        _greenLineButton.buttonColor = [UIColor emerlandColor];
+        _greenLineButton.shadowColor = [UIColor nephritisColor];
+        _greenLineButton.shadowHeight = 3.0f;
+        _greenLineButton.cornerRadius = 6.0f;
+        _greenLineButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+        [_greenLineButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
+        [_greenLineButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
     }
     
     return _greenLineButton;
 }
 
-- (UIButton *) orangeLineButton
+- (FUIButton *) orangeLineButton
 {
     if (!_orangeLineButton) {
-        _orangeLineButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        _orangeLineButton = [[FUIButton alloc] initWithFrame:CGRectZero];
+        _orangeLineButton = [[FUIButton alloc] initWithFrame:CGRectZero];
+        _orangeLineButton.buttonColor = [UIColor carrotColor];
+        _orangeLineButton.shadowColor = [UIColor pumpkinColor];
+        _orangeLineButton.shadowHeight = 3.0f;
+        _orangeLineButton.cornerRadius = 6.0f;
+        _orangeLineButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+        [_orangeLineButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
+        [_orangeLineButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
     }
     
     return _orangeLineButton;
