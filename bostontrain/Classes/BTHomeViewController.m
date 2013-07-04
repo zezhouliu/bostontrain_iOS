@@ -41,6 +41,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.wantsFullScreenLayout = NO;
+//    self.navigationController.navigationBarHidden = YES;
 	// Do any additional setup after loading the view.
     
 //    self.view.backgroundColor = [UIColor purpleColor];
@@ -62,7 +64,7 @@
  * * * * * * * * */
 - (void) setupRoutePlanner
 {
-    self.routePlannerBar.frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, 100);
+    self.routePlannerBar.frame = CGRectMake(0, 0, self.view.frame.size.width, 10);
     self.fromField.frame = CGRectMake(0, 0, self.view.frame.size.width / 2, 50);
     self.toField.frame = CGRectMake(self.fromField.frame.origin.x + self.fromField.frame.size.width,
                                     self.fromField.frame.origin.y, self.fromField.frame.size.width, self.fromField.frame.size.height);

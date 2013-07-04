@@ -19,6 +19,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.navigationController.wantsFullScreenLayout = NO;
+        self.navigationController.navigationBar.translucent = NO;
+
     }
     return self;
 }
@@ -27,6 +30,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.view.layer.borderColor = [[UIColor purpleColor] CGColor];
+    self.view.layer.borderWidth = 10;
+    
+    self.navigationController.navigationBar.layer.borderColor = [[UIColor redColor] CGColor];
+    self.navigationController.navigationBar.layer.borderWidth = 5;
+    
 }
 
 - (void)didReceiveMemoryWarning

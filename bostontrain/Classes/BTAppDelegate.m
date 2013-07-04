@@ -23,7 +23,7 @@
     
     BTHomeViewController *masterViewController = [[BTHomeViewController alloc] initWithNibName:nil bundle:nil];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
-    
+    self.navigationController.wantsFullScreenLayout = NO;
     
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
