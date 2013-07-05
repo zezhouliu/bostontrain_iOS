@@ -46,17 +46,7 @@
     
 }
 
-- (void) viewDidAppear:(BOOL)animated
-{
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        // code here
-        CGRect frame = self.view.frame;
-        frame.origin.y = self.navigationController.navigationBar.frame.origin.y + self.navigationController.navigationBar.frame.size.height;
-        frame.size.height = frame.size.height - frame.origin.y;
-        self.view.frame = frame;
-    }
-    
-}
+
 
 - (void) viewWillDisappear:(BOOL)animated
 {

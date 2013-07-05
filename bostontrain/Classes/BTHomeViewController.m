@@ -10,6 +10,17 @@
 #import "BTAlertsViewController.h"
 #import <UIKit/UIKit.h>
 #import "FlatUIKit.h"
+#import "RedLineViewController.h"
+#import "GreenLineViewController.h"
+#import "BlueLineViewController.h"
+#import "OrangeLineViewController.h"
+
+
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
 @interface BTHomeViewController ()
 
@@ -30,6 +41,8 @@
     if (self) {
         // Custom initialization
         self.title = @"Boston T-line";
+        self.view.autoresizesSubviews = YES;
+        self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     }
     return self;
 }
@@ -41,20 +54,38 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.wantsFullScreenLayout = NO;
-//    self.navigationController.navigationBarHidden = YES;
-	// Do any additional setup after loading the view.
-    
-//    self.view.backgroundColor = [UIColor purpleColor];
     
     [self setupNavigationBar];
     [self setupRoutePlanner];
     [self setupSearchBar];
     [self setupOptionButtons];
+    [self.view.layer setBorderColor:[[UIColor redColor] CGColor]];
+    [self.view.layer setBorderWidth:5];
 //    [self addAlertSection];
     
+
 }
 
+
+- (void) viewWillAppear:(BOOL)animated
+{
+//    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+//        // code here
+//        CGRect frame = self.view.frame;
+//        frame.origin.y = self.navigationController.navigationBar.frame.origin.y + self.navigationController.navigationBar.frame.size.height;
+//        frame.size.height = frame.size.height - frame.origin.y;
+//        self.view.frame = frame;
+//    }
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = NO;
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    self.navigationController.navigationBar.translucent = YES;
+    [super viewWillDisappear:animated];
+
+}
 
 # pragma mark - page loading
 /* * * * * * * * *
@@ -64,7 +95,8 @@
  * * * * * * * * */
 - (void) setupRoutePlanner
 {
-    self.routePlannerBar.frame = CGRectMake(0, 0, self.view.frame.size.width, 10);
+    self.routePlannerBar.frame = CGRectMake(0, 0, self.view.frame.size.width, 50);
+    self.routePlannerBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.fromField.frame = CGRectMake(0, 0, self.view.frame.size.width / 2, 50);
     self.toField.frame = CGRectMake(self.fromField.frame.origin.x + self.fromField.frame.size.width,
                                     self.fromField.frame.origin.y, self.fromField.frame.size.width, self.fromField.frame.size.height);
@@ -95,10 +127,10 @@
  * * * * * * * * */
 - (void) setupOptionButtons
 {
-    
+    NSLog(@"View frame: %@", self.view);
     // redLine button on top left
 //    self.redLineButton.frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height + 20, self.view.frame.size.width / 2, self.view.frame.size.height / 2 - 50);
-    self.redLineButton.frame = CGRectMake(0, self.routePlannerBar.frame.size.height, self.view.frame.size.width / 2, self.view.frame.size.height / 2 - 50);
+    self.redLineButton.frame = CGRectMake(0, self.routePlannerBar.frame.size.height, self.view.frame.size.width / 2, (self.view.frame.size.height / 2) - 50);
     [self.redLineButton addTarget:self action:@selector(redButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.redLineButton];
     
@@ -121,26 +153,34 @@
     [self.greenLineButton addTarget:self action:@selector(greenButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.greenLineButton];
     
+    NSLog(@"Red button: %@, height: %f, Green button: %@, height: %f", self.redLineButton, self.redLineButton.frame.size.height, self.greenLineButton, self.greenLineButton.frame.size.height);
+    
 }
 
 - (void) redButtonClicked
 {
+    RedLineViewController *rlvc = [[RedLineViewController alloc] init];
+    [self.navigationController pushViewController:rlvc animated:YES];
     
 }
 
 - (void) blueButtonClicked
 {
+    BlueLineViewController *blvc = [[BlueLineViewController alloc] init];
+    [self.navigationController pushViewController:blvc animated:YES];
     
 }
 
 - (void) greenButtonClicked
 {
-    
+    GreenLineViewController *glvc = [[GreenLineViewController alloc] init];
+    [self.navigationController pushViewController:glvc animated:YES];
 }
 
 - (void) orangeButtonClicked
 {
-    
+    OrangeLineViewController *olvc = [[OrangeLineViewController alloc] init];
+    [self.navigationController pushViewController:olvc animated:YES];
 }
 # pragma mark - subviews
 /* * * * * * *
@@ -164,6 +204,8 @@
         _redLineButton.backgroundColor = [UIColor alizarinColor];
         _redLineButton.buttonColor = [UIColor alizarinColor];
         _redLineButton.shadowColor = [UIColor pomegranateColor];
+        [_redLineButton setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+
         _redLineButton.shadowHeight = 5.0f;
         _redLineButton.cornerRadius = 0.0f;
         _redLineButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];

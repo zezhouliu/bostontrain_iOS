@@ -22,6 +22,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.defaultEdgeInsets = self.titleEdgeInsets;
+//        self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//        self.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
     }
     return self;
 }
