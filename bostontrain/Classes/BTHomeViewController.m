@@ -59,8 +59,8 @@
     [self setupRoutePlanner];
     [self setupSearchBar];
     [self setupOptionButtons];
-    [self.view.layer setBorderColor:[[UIColor redColor] CGColor]];
-    [self.view.layer setBorderWidth:5];
+//    [self.view.layer setBorderColor:[[UIColor redColor] CGColor]];
+//    [self.view.layer setBorderWidth:5];
 //    [self addAlertSection];
     
 
@@ -69,20 +69,23 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-//    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-//        // code here
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        
+        // code here
+        self.navigationController.navigationBarHidden = YES;
 //        CGRect frame = self.view.frame;
 //        frame.origin.y = self.navigationController.navigationBar.frame.origin.y + self.navigationController.navigationBar.frame.size.height;
 //        frame.size.height = frame.size.height - frame.origin.y;
 //        self.view.frame = frame;
-//    }
+    }
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.translucent = NO;
+//    self.navigationController.navigationBar.translucent = NO;
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
-    self.navigationController.navigationBar.translucent = YES;
+//    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBarHidden = NO;
     [super viewWillDisappear:animated];
 
 }

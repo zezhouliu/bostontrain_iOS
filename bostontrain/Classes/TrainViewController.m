@@ -10,6 +10,11 @@
 
 @interface TrainViewController ()
 
+@property (nonatomic, strong) FUIButton *realTimeButton;
+@property (nonatomic, strong) FUIButton *nextArrivalButton;
+@property (nonatomic, strong) FUIButton *scheduleButton;
+@property (nonatomic, strong) FUIButton *mapButton;
+
 @end
 
 @implementation TrainViewController
