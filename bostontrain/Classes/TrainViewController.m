@@ -14,6 +14,8 @@
 @property (nonatomic, strong) FUIButton *nextArrivalButton;
 @property (nonatomic, strong) FUIButton *scheduleButton;
 @property (nonatomic, strong) FUIButton *mapButton;
+@property (nonatomic, strong) UIColor *buttonColor;
+@property (nonatomic, strong) UIColor *buttonShadowColor;
 
 @end
 
