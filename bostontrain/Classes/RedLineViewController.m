@@ -23,7 +23,7 @@
 @property (nonatomic, strong) UIColor *buttonColor;
 @property (nonatomic, strong) UIColor *buttonShadowColor;
 
-@property (nonatomic, strong) BTView *headerFrame;
+@property (nonatomic, strong) BTView *headerView;
 @property (nonatomic, strong) UIImageView *headerImage;
 
 @end
@@ -70,13 +70,20 @@
 
 - (void) setupHeader
 {
+    self.headerView.frame = CGRectMake(0, 0, self.view.frame.size.width, 50);
+    self.headerView.backgroundColor = [UIColor amethystColor];
+    self.headerImage.frame = self.headerView.bounds;
     
+    [self.headerView addSubview:self.headerImage];
+    [self.view addSubview:self.headerView];
+
+
 }
 
 - (void) setupButtons
 {
     
-    self.nextArrivalButton.frame = CGRectMake(0, content_start, self.view.frame.size.width, 50);
+    self.nextArrivalButton.frame = CGRectMake(0, 200, self.view.frame.size.width, 50);
     self.scheduleButton.frame = CGRectMake(0, self.nextArrivalButton.frame.origin.y + self.nextArrivalButton.frame.size.height + vertical_gap, self.view.frame.size.width, 50);
     self.realTimeButton.frame = CGRectMake(0, self.scheduleButton.frame.origin.y + self.scheduleButton.frame.size.height + vertical_gap, self.view.frame.size.width, 50);
     
@@ -86,14 +93,14 @@
     
 }
 
-# pragma mark - header frame
-- (BTView *) headerFrame
+# pragma mark - header view
+- (BTView *) headerView
 {
-    if (!_headerFrame) {
-        _headerFrame = [[BTView alloc] init];
+    if (!_headerView) {
+        _headerView = [[BTView alloc] init];
     }
     
-    return _headerFrame;
+    return _headerView;
 }
 
 - (UIImageView *) headerImage
