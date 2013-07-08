@@ -54,6 +54,7 @@
         _realTimeButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
         [_realTimeButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
         [_realTimeButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
+        [_realTimeButton setTitle:@"Real Time Tracking" forState:UIControlStateNormal];
         
     }
     
@@ -71,6 +72,7 @@
         _nextArrivalButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
         [_nextArrivalButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
         [_nextArrivalButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
+        [_nextArrivalButton setTitle:@"Next Arrival" forState:UIControlStateNormal];
         
     }
     
@@ -88,6 +90,7 @@
         _scheduleButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
         [_scheduleButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
         [_scheduleButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
+        [_scheduleButton setTitle:@"Schedule" forState:UIControlStateNormal];
         
     }
     
@@ -105,6 +108,7 @@
         _mapButton.titleLabel.font = [UIFont boldFlatFontOfSize:16];
         [_mapButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
         [_mapButton setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
+        [_mapButton setTitle:@"Map" forState:UIControlStateNormal];
         
     }
     
