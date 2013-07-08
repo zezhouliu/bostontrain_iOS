@@ -34,6 +34,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self.realTimeButton addTarget:self action:@selector(realTimeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.nextArrivalButton addTarget:self action:@selector(nextArrivalButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.scheduleButton addTarget:self action:@selector(scheduleButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.mapButton addTarget:self action:@selector(mapButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning
@@ -113,6 +118,30 @@
     }
     
     return _mapButton;
+}
+
+# pragma mark - button click selectors
+- (void) realTimeButtonClicked: (id) sender
+{
+    // When clicked, we pop up a view for the maps
+    // Need to look into Google Maps/Apple Maps API for this
+    
+}
+
+- (void) nextArrivalButtonClicked: (id) sender
+{
+    // pop up TableView for next arrivals
+}
+
+- (void) scheduleButtonClicked: (id) sender
+{
+    // pop up a TableView for the schedule or a PDF for the schedule
+}
+
+- (void) mapButtonClicked: (id) sender
+{
+    // either open up the Google Maps / Apple Maps app with loaded information, or
+    // embed Apple Maps within Boston Train App
 }
 
 @end
