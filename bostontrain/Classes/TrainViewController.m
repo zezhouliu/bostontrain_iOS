@@ -26,6 +26,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        self.view.autoresizesSubviews = YES;
+        self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        
     }
     return self;
 }
@@ -35,10 +39,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self.realTimeButton addTarget:self action:@selector(realTimeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self.nextArrivalButton addTarget:self action:@selector(nextArrivalButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self.scheduleButton addTarget:self action:@selector(scheduleButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self.mapButton addTarget:self action:@selector(mapButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 - (void)didReceiveMemoryWarning

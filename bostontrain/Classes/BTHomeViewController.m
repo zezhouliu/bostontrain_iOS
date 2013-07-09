@@ -23,6 +23,9 @@
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
 @interface BTHomeViewController ()
+{
+    CGFloat content_start;
+}
 
 @property (nonatomic, strong) BTView *alertHeader;
 
@@ -53,40 +56,25 @@
  * * * * * * * * * */
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        // have a
+        content_start = 50;
+        
+    }
+    else {
+        
+    }
     
     [self setupNavigationBar];
     [self setupRoutePlanner];
     [self setupSearchBar];
     [self setupOptionButtons];
-//    [self.view.layer setBorderColor:[[UIColor redColor] CGColor]];
-//    [self.view.layer setBorderWidth:5];
+    [self.view.layer setBorderColor:[[UIColor redColor] CGColor]];
+    [self.view.layer setBorderWidth:5];
 //    [self addAlertSection];
-    
-
-}
-
-
-- (void) viewWillAppear:(BOOL)animated
-{
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        
-        // code here
-        self.navigationController.navigationBarHidden = YES;
-//        CGRect frame = self.view.frame;
-//        frame.origin.y = self.navigationController.navigationBar.frame.origin.y + self.navigationController.navigationBar.frame.size.height;
-//        frame.size.height = frame.size.height - frame.origin.y;
-//        self.view.frame = frame;
-    }
-    [super viewWillAppear:animated];
-//    self.navigationController.navigationBar.translucent = NO;
-}
-
-- (void) viewWillDisappear:(BOOL)animated
-{
-//    self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.navigationBarHidden = NO;
-    [super viewWillDisappear:animated];
 
 }
 
@@ -98,7 +86,7 @@
  * * * * * * * * */
 - (void) setupRoutePlanner
 {
-    self.routePlannerBar.frame = CGRectMake(0, 0, self.view.frame.size.width, 50);
+    self.routePlannerBar.frame = CGRectMake(0, content_start, self.view.frame.size.width, 50);
     self.routePlannerBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.fromField.frame = CGRectMake(0, 0, self.view.frame.size.width / 2, 50);
     self.toField.frame = CGRectMake(self.fromField.frame.origin.x + self.fromField.frame.size.width,
