@@ -40,8 +40,8 @@
         self.view.autoresizesSubviews = YES;
         self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
-//        [self refreshView];
     }
+    
     return self;
 }
 
@@ -95,8 +95,6 @@
     [self.trainView addSubview:self.headerImage];
     [self.view addSubview:self.trainView];
     
-//    [self.view addSubview:self.trainView];
-    
 
 }
 
@@ -117,8 +115,6 @@
     [self.view addSubview:self.scheduleButton];
     [self.view addSubview:self.realTimeButton];
     [self.view addSubview:self.mapButton];
-    
-//    [self setupTrainHeader];
     
 }
 

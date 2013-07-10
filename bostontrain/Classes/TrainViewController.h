@@ -8,6 +8,7 @@
 
 #import "BTViewController.h"
 #import "FlatUIKit.h"
+#import "BTView.h"
 
 @interface TrainViewController : BTViewController
 
