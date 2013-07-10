@@ -36,17 +36,11 @@
     if (self) {
         // Custom initialization
         
-        self.title = @"Red Line";
-        
+//        self.title = @"Red Line";
         self.view.autoresizesSubviews = YES;
         self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
-        self.buttonColor = [UIColor alizarinColor];
-        self.buttonShadowColor = [UIColor pomegranateColor];
-        content_start = 0;
-        vertical_gap = 15;
-        
-        [self refreshView];
+//        [self refreshView];
     }
     return self;
 }
@@ -55,6 +49,20 @@
 {
     [super viewDidLoad];
 
+//    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+//        // have a
+//        content_start = 50;
+//        
+//    }
+
+    
+    self.buttonColor = [UIColor alizarinColor];
+    self.buttonShadowColor = [UIColor pomegranateColor];
+    content_start = 0;
+    vertical_gap = 15;
+    
+    [self setupTrainHeader];
+    [self setupButtons];
 
 
 	// Do any additional setup after loading the view.
@@ -73,47 +81,32 @@
 
 - (void) refreshView
 {
-    if (!self.trainView) {
-        self.trainView = [[BTView alloc] initWithFrame:CGRectZero];
-    }
-    self.trainView.frame = CGRectMake(0, 0, self.view.frame.size.width, 20);
-    //    self.trainView.backgroundColor = [UIColor amethystColor];
-    self.trainView.backgroundColor = [UIColor amethystColor];
-    //    self.headerImage.frame = self.headerView.bounds;
-    
-    //    [self.headerView addSubview:self.headerImage];
-    
-    [self.view addSubview:self.trainView];
-
-    
-//    [self setupTrainHeader];
-//    [self setupButtons];
-    
-    NSLog(@"Self.headerview: %@, self.nextArrival: %@", self.trainView, self.nextArrivalButton);
+    [self setupTrainHeader];
+    [self setupButtons];
 }
 
 - (void) setupTrainHeader
 {
-    if (!self.trainView) {
-        self.trainView = [[BTView alloc] initWithFrame:CGRectZero];
-    }
-    self.trainView.frame = CGRectMake(0, 0, self.view.frame.size.width, 20);
-//    self.trainView.backgroundColor = [UIColor amethystColor];
-    self.trainView.backgroundColor = [UIColor amethystColor];
-//    self.headerImage.frame = self.headerView.bounds;
     
-//    [self.headerView addSubview:self.headerImage];
+    self.trainView.frame = CGRectMake(0, 0, self.view.frame.size.width, 120);
+    self.headerImage.frame = self.trainView.bounds;
+    self.headerImage.backgroundColor = [UIColor purpleColor];
     
+    [self.trainView addSubview:self.headerImage];
     [self.view addSubview:self.trainView];
+    
+//    [self.view addSubview:self.trainView];
+    
 
 }
 
 - (void) setupButtons
 {
     
-    self.nextArrivalButton.frame = CGRectMake(0, self.trainView.frame.origin.y + self.trainView.frame.size.height, self.view.frame.size.width, 50);
+    self.nextArrivalButton.frame = CGRectMake(0, self.trainView.frame.origin.y + self.trainView.frame.size.height + vertical_gap, self.view.frame.size.width, 50);
     self.scheduleButton.frame = CGRectMake(0, self.nextArrivalButton.frame.origin.y + self.nextArrivalButton.frame.size.height + vertical_gap, self.view.frame.size.width, 50);
     self.realTimeButton.frame = CGRectMake(0, self.scheduleButton.frame.origin.y + self.scheduleButton.frame.size.height + vertical_gap, self.view.frame.size.width, 50);
+    self.mapButton.frame = CGRectMake(0, self.realTimeButton.frame.origin.y + self.realTimeButton.frame.size.height + vertical_gap, self.view.frame.size.width, 50);
     
     [self.realTimeButton addTarget:self action:@selector(realTimeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.nextArrivalButton addTarget:self action:@selector(nextArrivalButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -123,13 +116,30 @@
     [self.view addSubview:self.nextArrivalButton];
     [self.view addSubview:self.scheduleButton];
     [self.view addSubview:self.realTimeButton];
+    [self.view addSubview:self.mapButton];
     
-    [self setupTrainHeader];
+//    [self setupTrainHeader];
     
 }
 
 # pragma mark - header view
+- (BTView *) trainView
+{
+    if (!_trainView) {
+        _trainView = [[BTView alloc] initWithFrame:CGRectZero];
+    }
+    
+    return _trainView;
+}
 
+- (UIImageView *) headerImage
+{
+    if (!_headerImage) {
+        _headerImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"redline_photo.png"]];
+    }
+    
+    return _headerImage;
+}
 
 
 # pragma mark - Buttons

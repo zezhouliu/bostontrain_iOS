@@ -86,7 +86,7 @@
  * * * * * * * * */
 - (void) setupRoutePlanner
 {
-    self.routePlannerBar.frame = CGRectMake(0, content_start, self.view.frame.size.width, 50);
+    self.routePlannerBar.frame = CGRectMake(0, content_start, self.view.frame.size.width, 55);
     self.routePlannerBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.fromField.frame = CGRectMake(0, 0, self.view.frame.size.width / 2, 50);
     self.toField.frame = CGRectMake(self.fromField.frame.origin.x + self.fromField.frame.size.width,
@@ -119,8 +119,9 @@
 - (void) setupOptionButtons
 {
     NSLog(@"View frame: %@", self.view);
+    
     // redLine button on top left
-//    self.redLineButton.frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height + 20, self.view.frame.size.width / 2, self.view.frame.size.height / 2 - 50);
+    
     self.redLineButton.frame = CGRectMake(0, self.routePlannerBar.frame.size.height, self.view.frame.size.width / 2, (self.view.frame.size.height / 2) - 50);
     [self.redLineButton addTarget:self action:@selector(redButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.redLineButton];

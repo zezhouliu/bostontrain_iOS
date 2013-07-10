@@ -62,6 +62,13 @@
 		FA30B951176D593400387D9B /* BTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B950176D593400387D9B /* BTHomeViewController.m */; };
 		FA30B955176E5D7E00387D9B /* BTJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30B954176E5D7E00387D9B /* BTJSONParser.m */; };
 		FA5CD3791786612D00D20710 /* TrainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5CD3781786612D00D20710 /* TrainViewController.m */; };
+		FA8D13F5178D18C4000D21EF /* blueline_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8D13F0178D18C4000D21EF /* blueline_photo.png */; };
+		FA8D13F6178D18C4000D21EF /* greenline_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8D13F1178D18C4000D21EF /* greenline_photo.png */; };
+		FA8D13F7178D18C4000D21EF /* orangeline_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8D13F2178D18C4000D21EF /* orangeline_photo.png */; };
+		FA8D13F8178D18C4000D21EF /* redline_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8D13F3178D18C4000D21EF /* redline_photo.png */; };
+		FA8D13F9178D18C4000D21EF /* silverline_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8D13F4178D18C4000D21EF /* silverline_photo.png */; };
+		FA8D13FC178D1B91000D21EF /* fare_advanced.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8D13FA178D1B91000D21EF /* fare_advanced.png */; };
+		FA8D13FD178D1B91000D21EF /* map_subway.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8D13FB178D1B91000D21EF /* map_subway.png */; };
 		FA918D7D1787917300174C8E /* RedLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA918D7C1787917300174C8E /* RedLineViewController.m */; };
 		FA918D80178791DC00174C8E /* BlueLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA918D7F178791DC00174C8E /* BlueLineViewController.m */; };
 		FA918D83178791F500174C8E /* GreenLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA918D82178791F500174C8E /* GreenLineViewController.m */; };
@@ -175,6 +182,13 @@
 		FA30B954176E5D7E00387D9B /* BTJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTJSONParser.m; sourceTree = "<group>"; };
 		FA5CD3771786612D00D20710 /* TrainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrainViewController.h; path = Classes/TrainViewController.h; sourceTree = "<group>"; };
 		FA5CD3781786612D00D20710 /* TrainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrainViewController.m; path = Classes/TrainViewController.m; sourceTree = "<group>"; };
+		FA8D13F0178D18C4000D21EF /* blueline_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueline_photo.png; path = images/blueline_photo.png; sourceTree = "<group>"; };
+		FA8D13F1178D18C4000D21EF /* greenline_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greenline_photo.png; path = images/greenline_photo.png; sourceTree = "<group>"; };
+		FA8D13F2178D18C4000D21EF /* orangeline_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orangeline_photo.png; path = images/orangeline_photo.png; sourceTree = "<group>"; };
+		FA8D13F3178D18C4000D21EF /* redline_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redline_photo.png; path = images/redline_photo.png; sourceTree = "<group>"; };
+		FA8D13F4178D18C4000D21EF /* silverline_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = silverline_photo.png; path = images/silverline_photo.png; sourceTree = "<group>"; };
+		FA8D13FA178D1B91000D21EF /* fare_advanced.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fare_advanced.png; path = images/fare_advanced.png; sourceTree = "<group>"; };
+		FA8D13FB178D1B91000D21EF /* map_subway.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map_subway.png; path = images/map_subway.png; sourceTree = "<group>"; };
 		FA918D7B1787917300174C8E /* RedLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RedLineViewController.h; path = Classes/RedLineViewController.h; sourceTree = "<group>"; };
 		FA918D7C1787917300174C8E /* RedLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RedLineViewController.m; path = Classes/RedLineViewController.m; sourceTree = "<group>"; };
 		FA918D7E178791DC00174C8E /* BlueLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlueLineViewController.h; path = Classes/BlueLineViewController.h; sourceTree = "<group>"; };
@@ -364,10 +378,17 @@
 		FA30B933176CDA8800387D9B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA8D13FA178D1B91000D21EF /* fare_advanced.png */,
+				FA8D13FB178D1B91000D21EF /* map_subway.png */,
 				FACC89FE177FE5B20070739C /* blue_button.png */,
 				FACC89FF177FE5B20070739C /* green_button.png */,
 				FACC8A00177FE5B20070739C /* orange_button.png */,
 				FA9304C317742D0500BAA7DF /* red_button.png */,
+				FA8D13F0178D18C4000D21EF /* blueline_photo.png */,
+				FA8D13F1178D18C4000D21EF /* greenline_photo.png */,
+				FA8D13F2178D18C4000D21EF /* orangeline_photo.png */,
+				FA8D13F3178D18C4000D21EF /* redline_photo.png */,
+				FA8D13F4178D18C4000D21EF /* silverline_photo.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -571,6 +592,13 @@
 				FA30B908176CD6CE00387D9B /* Default-568h@2x.png in Resources */,
 				FA30B937176CDD5D00387D9B /* BTMasterViewController.xib in Resources */,
 				FA30B93A176CDD9C00387D9B /* BTDetailViewController.xib in Resources */,
+				FA8D13F5178D18C4000D21EF /* blueline_photo.png in Resources */,
+				FA8D13F6178D18C4000D21EF /* greenline_photo.png in Resources */,
+				FA8D13F7178D18C4000D21EF /* orangeline_photo.png in Resources */,
+				FA8D13F8178D18C4000D21EF /* redline_photo.png in Resources */,
+				FA8D13F9178D18C4000D21EF /* silverline_photo.png in Resources */,
+				FA8D13FC178D1B91000D21EF /* fare_advanced.png in Resources */,
+				FA8D13FD178D1B91000D21EF /* map_subway.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
