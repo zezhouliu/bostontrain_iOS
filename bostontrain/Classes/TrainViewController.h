@@ -9,6 +9,10 @@
 #import "BTViewController.h"
 #import "FlatUIKit.h"
 #import "BTView.h"
+#import "BTNextArrivalViewController.h"
+#import "BTScheduleViewController.h"
+#import "BTRealTimeViewController.h"
+#import "BTMapViewController.h"
 
 @interface TrainViewController : BTViewController
 

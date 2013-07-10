@@ -69,6 +69,10 @@
 		FA8D13F9178D18C4000D21EF /* silverline_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8D13F4178D18C4000D21EF /* silverline_photo.png */; };
 		FA8D13FC178D1B91000D21EF /* fare_advanced.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8D13FA178D1B91000D21EF /* fare_advanced.png */; };
 		FA8D13FD178D1B91000D21EF /* map_subway.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8D13FB178D1B91000D21EF /* map_subway.png */; };
+		FA8D1401178D2058000D21EF /* BTNextArrivalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8D1400178D2058000D21EF /* BTNextArrivalViewController.m */; };
+		FA8D1404178D2072000D21EF /* BTScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8D1403178D2072000D21EF /* BTScheduleViewController.m */; };
+		FA8D1408178D208D000D21EF /* BTRealTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8D1407178D208D000D21EF /* BTRealTimeViewController.m */; };
+		FA8D140B178D209B000D21EF /* BTMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8D140A178D209B000D21EF /* BTMapViewController.m */; };
 		FA918D7D1787917300174C8E /* RedLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA918D7C1787917300174C8E /* RedLineViewController.m */; };
 		FA918D80178791DC00174C8E /* BlueLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA918D7F178791DC00174C8E /* BlueLineViewController.m */; };
 		FA918D83178791F500174C8E /* GreenLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA918D82178791F500174C8E /* GreenLineViewController.m */; };
@@ -189,6 +193,14 @@
 		FA8D13F4178D18C4000D21EF /* silverline_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = silverline_photo.png; path = images/silverline_photo.png; sourceTree = "<group>"; };
 		FA8D13FA178D1B91000D21EF /* fare_advanced.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fare_advanced.png; path = images/fare_advanced.png; sourceTree = "<group>"; };
 		FA8D13FB178D1B91000D21EF /* map_subway.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map_subway.png; path = images/map_subway.png; sourceTree = "<group>"; };
+		FA8D13FF178D2058000D21EF /* BTNextArrivalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTNextArrivalViewController.h; path = Classes/BTNextArrivalViewController.h; sourceTree = "<group>"; };
+		FA8D1400178D2058000D21EF /* BTNextArrivalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTNextArrivalViewController.m; path = Classes/BTNextArrivalViewController.m; sourceTree = "<group>"; };
+		FA8D1402178D2072000D21EF /* BTScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTScheduleViewController.h; path = Classes/BTScheduleViewController.h; sourceTree = "<group>"; };
+		FA8D1403178D2072000D21EF /* BTScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTScheduleViewController.m; path = Classes/BTScheduleViewController.m; sourceTree = "<group>"; };
+		FA8D1406178D208D000D21EF /* BTRealTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTRealTimeViewController.h; path = Classes/BTRealTimeViewController.h; sourceTree = "<group>"; };
+		FA8D1407178D208D000D21EF /* BTRealTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTRealTimeViewController.m; path = Classes/BTRealTimeViewController.m; sourceTree = "<group>"; };
+		FA8D1409178D209B000D21EF /* BTMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTMapViewController.h; path = Classes/BTMapViewController.h; sourceTree = "<group>"; };
+		FA8D140A178D209B000D21EF /* BTMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTMapViewController.m; path = Classes/BTMapViewController.m; sourceTree = "<group>"; };
 		FA918D7B1787917300174C8E /* RedLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RedLineViewController.h; path = Classes/RedLineViewController.h; sourceTree = "<group>"; };
 		FA918D7C1787917300174C8E /* RedLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RedLineViewController.m; path = Classes/RedLineViewController.m; sourceTree = "<group>"; };
 		FA918D7E178791DC00174C8E /* BlueLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlueLineViewController.h; path = Classes/BlueLineViewController.h; sourceTree = "<group>"; };
@@ -396,6 +408,7 @@
 		FA30B935176CDBAE00387D9B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA8D13FE178D2024000D21EF /* TrainDetails */,
 				FA35927117866083007541C3 /* Trains */,
 				FA30B94E176D58ED00387D9B /* Home */,
 				FA30B909176CD6CE00387D9B /* BTMasterViewController.h */,
@@ -490,6 +503,21 @@
 				FA918D851787921A00174C8E /* OrangeLineViewController.m */,
 			);
 			name = Trains;
+			sourceTree = "<group>";
+		};
+		FA8D13FE178D2024000D21EF /* TrainDetails */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D13FF178D2058000D21EF /* BTNextArrivalViewController.h */,
+				FA8D1400178D2058000D21EF /* BTNextArrivalViewController.m */,
+				FA8D1402178D2072000D21EF /* BTScheduleViewController.h */,
+				FA8D1403178D2072000D21EF /* BTScheduleViewController.m */,
+				FA8D1406178D208D000D21EF /* BTRealTimeViewController.h */,
+				FA8D1407178D208D000D21EF /* BTRealTimeViewController.m */,
+				FA8D1409178D209B000D21EF /* BTMapViewController.h */,
+				FA8D140A178D209B000D21EF /* BTMapViewController.m */,
+			);
+			name = TrainDetails;
 			sourceTree = "<group>";
 		};
 		FADD9090178238D400BEC218 /* 3rd Party */ = {
@@ -669,6 +697,10 @@
 				FA918D80178791DC00174C8E /* BlueLineViewController.m in Sources */,
 				FA918D83178791F500174C8E /* GreenLineViewController.m in Sources */,
 				FA918D861787921A00174C8E /* OrangeLineViewController.m in Sources */,
+				FA8D1401178D2058000D21EF /* BTNextArrivalViewController.m in Sources */,
+				FA8D1404178D2072000D21EF /* BTScheduleViewController.m in Sources */,
+				FA8D1408178D208D000D21EF /* BTRealTimeViewController.m in Sources */,
+				FA8D140B178D209B000D21EF /* BTMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

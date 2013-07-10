@@ -222,17 +222,23 @@
 - (void) nextArrivalButtonClicked: (id) sender
 {
     // pop up TableView for next arrivals
+    BTNextArrivalViewController *navcBlue = [[BTNextArrivalViewController alloc] init];
+    [self.navigationController pushViewController:navcBlue animated:YES];
 }
 
 - (void) scheduleButtonClicked: (id) sender
 {
     // pop up a TableView for the schedule or a PDF for the schedule
+    BTScheduleViewController *svcBlue = [[BTScheduleViewController alloc] init];
+    [self.navigationController pushViewController:svcBlue animated:YES];
 }
 
 - (void) mapButtonClicked: (id) sender
 {
     // either open up the Google Maps / Apple Maps app with loaded information, or
     // embed Apple Maps within Boston Train App
+    BTMapViewController *mvcBlue = [[BTMapViewController alloc] init];
+    [self.navigationController pushViewController:mvcBlue animated:YES];
 }
 
 
