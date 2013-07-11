@@ -23,6 +23,13 @@
 @property (nonatomic, strong) FUIButton *blueLineButton;
 @property (nonatomic, strong) UISearchBar *searchBar;
 
+@property (nonatomic, strong) NSMutableArray *routesArray;
+@property (nonatomic, strong) NSMutableArray *subwayRoutesArray;
+@property (nonatomic, strong) NSMutableArray *greenLineRouteIDs;
+@property (nonatomic, strong) NSMutableArray *redLineRouteIDs;
+@property (nonatomic, strong) NSMutableArray *blueLineRouteIDs;
+@property (nonatomic, strong) NSMutableArray *orangeLineRouteIDs;
+
 - (void) redButtonClicked;
 - (void) blueButtonClicked;
 - (void) orangeButtonClicked;

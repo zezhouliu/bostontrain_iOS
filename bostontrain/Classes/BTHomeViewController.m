@@ -23,6 +23,8 @@
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
+#define SUBWAY_VALUE @"Subway"
+
 @interface BTHomeViewController ()
 {
     CGFloat content_start;
@@ -318,7 +320,138 @@
 
 - (void) getRouteRequestDidSucceed: (BTRequest *) request
 {
-    NSLog(@"Reached end of request");
-    request.
+    if ([request.responseDict objectForKey:@"mode"]) {
+        // Array of all routes of all commute type (i.e. subway, ferry, etc)
+        self.routesArray = [request.responseDict objectForKey:@"mode"];
+        
+        if (self.routesArray) {
+            for (int i = 0; i < [self.routesArray count]; i++) {
+                
+                // routeDicts is the dictionary for each commute type
+                NSDictionary *routeDicts = [self.routesArray objectAtIndex:i];
+                
+                // if the dict is for a subway, we grab the array of all routes and add to oure self.subwayRoutesArray
+                if ([routeDicts objectForKey:@"mode_name"] && ([[routeDicts objectForKey:@"mode_name"] isEqualToString:SUBWAY_VALUE]) && [[routeDicts objectForKey:@"route"] isKindOfClass:[NSArray class]]) {
+                    NSArray *subwayRoutes = [routeDicts objectForKey:@"route"];
+                    [self.subwayRoutesArray addObjectsFromArray:subwayRoutes];
+                    
+                    // Here, we do additional parsing to store arrays for each subway line (Red, Green, Blue, etc);
+                    for (int j = 0; j < [subwayRoutes count]; j++) {
+                        NSDictionary *route = [subwayRoutes objectAtIndex:j];
+                        if (route && [route objectForKey:@"route_name"]) {
+                            if ([[route objectForKey:@"route_name"] isEqualToString:@"Green Line"]){
+                                [self.greenLineRouteIDs addObject:[route objectForKey:@"route_id"]];
+                            }
+                            else if ([[route objectForKey:@"route_name"] isEqualToString:@"Red Line"]){
+                                [self.redLineRouteIDs addObject:[route objectForKey:@"route_id"]];
+                            }
+                            else if ([[route objectForKey:@"route_name"] isEqualToString:@"Blue Line"]){
+                                [self.blueLineRouteIDs addObject:[route objectForKey:@"route_id"]];
+                            }
+                            else if ([[route objectForKey:@"route_name"] isEqualToString:@"Orange Line"]){
+                                [self.orangeLineRouteIDs addObject:[route objectForKey:@"route_id"]];
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
+
+# pragma mark - properties
+/* * * * * * * * * *
+ * subwayRoutesArray is an array containing dictionaries with 2 KV pairs
+ * Key: route_id; Value: # (i.e 810)
+ * Key: route_name; Value: NSString (i.e. Green Line)
+ * * * * * * * * * */
+- (NSMutableArray *) subwayRoutesArray
+{
+    if (!_subwayRoutesArray) {
+        _subwayRoutesArray = [[NSMutableArray alloc] init];
+    }
+    
+    return _subwayRoutesArray;
+}
+
+/* * * * * * * * * *
+ * greenLineRouteIDs is an array containing the route ids for green line
+ *
+ * * * * * * * * * */
+- (NSMutableArray *) greenLineRouteIDs
+{
+    if (!_greenLineRouteIDs) {
+        _greenLineRouteIDs = [[NSMutableArray alloc] init];
+    }
+    
+    return _greenLineRouteIDs;
+}
+
+/* * * * * * * * * *
+ * redLineRouteIDs is an array containing the route ids for red line
+ *
+ * * * * * * * * * */
+- (NSMutableArray *) redLineRouteIDs
+{
+    if (!_redLineRouteIDs) {
+        _redLineRouteIDs = [[NSMutableArray alloc] init];
+    }
+    
+    return _redLineRouteIDs;
+}
+
+/* * * * * * * * * *
+ * blueLineRouteIDs is an array containing the route ids for blue line
+ *
+ * * * * * * * * * */
+- (NSMutableArray *) blueLineRouteIDs
+{
+    if (!_blueLineRouteIDs) {
+        _blueLineRouteIDs = [[NSMutableArray alloc] init];
+    }
+    
+    return _blueLineRouteIDs;
+}
+
+/* * * * * * * * * *
+ * orangeLineRouteIDs is an array containing the route ids for orange line
+ *
+ * * * * * * * * * */
+- (NSMutableArray *) orangeLineRouteIDs
+{
+    if (!_orangeLineRouteIDs) {
+        _orangeLineRouteIDs = [[NSMutableArray alloc] init];
+    }
+    
+    return _orangeLineRouteIDs;
+}
+
+
+/* * * * * * * * * * * *
+ Should I include SilverLine?
+ 
+ {
+ "route_id" = 746;
+ "route_name" = "Silver Line";
+ },
+ {
+ "route_id" = 741;
+ "route_name" = SL1;
+ },
+ {
+ "route_id" = 742;
+ "route_name" = SL2;
+ },
+ {
+ "route_id" = 751;
+ "route_name" = SL4;
+ },
+ {
+ "route_id" = 749;
+ "route_name" = SL5;
+ },
+**/
+
+
 @end

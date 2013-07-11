@@ -293,9 +293,11 @@ NSString *const lat = @"&lat=";
     
     // convert to JSON
     NSError *error = nil;
-    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&error];
+    self.responseDict = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&error];
     
-     NSLog(@"DICTIONARY: %@", res);
+    if (!self.responseDict) {
+        NSLog(@"NO RESPONSE DICT");
+    }
     
     if (self.delegate && self.succeedSelector && [self.delegate respondsToSelector:self.succeedSelector]) {
         [self.delegate performSelectorOnMainThread:self.succeedSelector withObject:self waitUntilDone:NO];
@@ -303,16 +305,5 @@ NSString *const lat = @"&lat=";
 }
 
 # pragma mark - properties
-- (NSMutableDictionary *) responseDict
-{
-    NSMutableDictionary *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:nil];
-    
-    if (!res) {
-        NSLog(@"NO RESPONSE DICT");
-    }
-    
-    return res;
-    
-}
 
 @end
