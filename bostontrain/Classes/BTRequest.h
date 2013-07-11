@@ -22,10 +22,14 @@
 - (id) initGetRequestWithApi: (id) delegate urlString: (NSString *) urlString succeedSelector: (SEL) succeedSelector failSelector:(SEL) failSelector;
 
 // API calls
-- (NSString *) getArrivalsDeparturesWithStop:(NSString *)stopId route:(NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime;
-- (NSString *) getServerTime;
-- (NSString *) getRouteByStop: (NSString *) stopId;
++ (id) getArrivalsDeparturesByStopWithDelegate: (id) delegate stopId: (NSString *)stopId route:(NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime succeedSelector: (SEL) succeedSelector;
++ (id) getArrivalsDeparturesByRouteWithDelegate: (id) delegate route: (NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime succeedSelector: (SEL) succeedSelector;
++ (id) getArrivalsDeparturesByTripWithDelegate: (id) delegate trip: (NSString *)trip datetime:(NSString *)datetime succeedSelector: (SEL) succeedSelector;
++ (id) getServerTimeWithDelegate: (id) delegate succeedSelector: (SEL) succeedSelector;
++ (id) getStopListByRouteWithDelegate: (id) delegate route: (NSString *) route succeedSelector: (SEL) succeedSelector;
++ (id) getAlertsWithDelegate: (id) delegate succeedSelector: (SEL) succeedSelector;
 + (id) getRouteListWithDelegate: (id) delegate succeedSelector: (SEL) succeedSelector;
 + (id) getStopListByRouteWithDelegate: (id) delegate route: (NSString *) route succeedSelector: (SEL) succeedSelector;
++ (id) getStopListByUserLocationWithDelegate: (id) delegate latitude: (NSString *) latitude longtitude: (NSString *)longitude succeedSelector: (SEL) succeedSelector;
 
 @end

@@ -92,9 +92,12 @@ NSString *const lat = @"&lat=";
 // get string of URL for serverTime
 // REQUIRED: none
 // OPTIONAL: none
-- (NSString *) getServerTime
++ (id) getServerTimeWithDelegate: (id) delegate succeedSelector: (SEL) succeedSelector
 {
-    return [NSString stringWithFormat:@"%@%@%@", baseString, serverTime, apiKey];
+    NSString *queryString = [NSString stringWithFormat:@"%@%@%@", baseString, serverTime, apiKey];
+    BTRequest *request = [[BTRequest alloc] initGetRequestWithApi:delegate urlString:queryString succeedSelector:succeedSelector failSelector:nil];
+    
+    return request;
 }
 
 /* * * * * * * * * * *
@@ -102,9 +105,12 @@ NSString *const lat = @"&lat=";
  * REQUIRED: none
  * OPTIONAL: none
  * * * * * * * * * * */
-- (NSString *) getAlerts
++ (id) getAlertsWithDelegate: (id) delegate succeedSelector: (SEL) succeedSelector
 {
-    return [NSString stringWithFormat:@"%@%@%@", baseString, alerts, apiKey];
+    NSString *queryString = [NSString stringWithFormat:@"%@%@%@", baseString, alerts, apiKey];
+    BTRequest *request = [[BTRequest alloc] initGetRequestWithApi:delegate urlString:queryString succeedSelector:succeedSelector failSelector:nil];
+    
+    return request;
 }
 
 // get route list
@@ -123,13 +129,16 @@ NSString *const lat = @"&lat=";
  * REQUIRED: stopId
  * OPTIONAL: none
  * * * * * * * * * * * */
-- (NSString *) getRouteByStop: (NSString *) stopId
++ (id) getRouteByStop: (id) delegate stopId: (NSString *) stopId succeedSelector: (SEL) succeedSelector
  {
      if (!stopId){
-         return @"";
+         return nil;
      }
      
-    return [NSString stringWithFormat:@"%@%@%@%@%@", baseString, routesByStop, apiKey, stopGTFS, stopId];
+     NSString *queryString = [NSString stringWithFormat:@"%@%@%@%@%@", baseString, routesByStop, apiKey, stopGTFS, stopId];
+     BTRequest *request = [[BTRequest alloc] initGetRequestWithApi:delegate urlString:queryString succeedSelector:succeedSelector failSelector:nil];
+     
+     return request;
  }
  
 
@@ -141,7 +150,7 @@ NSString *const lat = @"&lat=";
 + (id) getStopListByRouteWithDelegate: (id) delegate route: (NSString *) route succeedSelector: (SEL) succeedSelector
 {
     if (!route){
-        return @"";
+        return nil;
     }
     
     NSString *queryString = [NSString stringWithFormat:@"%@%@%@%@%@", baseString, stopsByRoute, apiKey, routeGTFS, route];
@@ -155,13 +164,16 @@ NSString *const lat = @"&lat=";
  * REQUIRED: latitude, longtitude
  * OPTIONAL: none
  * * * * * * * * * * * */
-- (NSString *) getStopListByUserLocation: (NSString *) latitude longtitude: (NSString *)longitude
++ (id) getStopListByUserLocationWithDelegate: (id) delegate latitude: (NSString *) latitude longtitude: (NSString *)longitude succeedSelector: (SEL) succeedSelector
 {
     if (!longitude || !latitude){
-        return @"";
+        return nil;
     }
     
-    return [NSString stringWithFormat:@"%@%@%@%@%@%@%@", baseString, stopsByLocation, apiKey, lat, latitude, lon, longitude];
+    NSString * queryString = [NSString stringWithFormat:@"%@%@%@%@%@%@%@", baseString, stopsByLocation, apiKey, lat, latitude, lon, longitude];
+    BTRequest *request = [[BTRequest alloc] initGetRequestWithApi:delegate urlString:queryString succeedSelector:succeedSelector failSelector:nil];
+    
+    return request;
 }
 
 /* * * * * * * * * * * *
@@ -169,11 +181,11 @@ NSString *const lat = @"&lat=";
  * REQUIRED: stop
  * OPTIONAL: route, direction, datetime
  * * * * * * * * * * * */
-- (NSString *) getArrivalsDeparturesWithStop:(NSString *)stopId route:(NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime
++ (id) getArrivalsDeparturesByStopWithDelegate: (id) delegate stopId: (NSString *)stopId route:(NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime succeedSelector: (SEL) succeedSelector
 {
     // stopId is REQUIRED
     if (!stopId){
-        return @"";
+        return nil;
     }
     
     // append urlParams if given
@@ -187,8 +199,10 @@ NSString *const lat = @"&lat=";
         datetime = [NSString stringWithFormat:@"%@%@", epochTime, datetime];
     }
     
-    return [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@", baseString, scheduleByStop, apiKey, stopGTFS, stopId, route, direction, datetime];
+    NSString* queryString = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@", baseString, scheduleByStop, apiKey, stopGTFS, stopId, route, direction, datetime];
+    BTRequest *request = [[BTRequest alloc] initGetRequestWithApi:delegate urlString:queryString succeedSelector:succeedSelector failSelector:nil];
     
+    return request;
 }
 
 
@@ -197,11 +211,11 @@ NSString *const lat = @"&lat=";
  * REQUIRED: route
  * OPTIONAL: direction, datetime
  * * * * * * * * * * * */
-- (NSString *) getArrivalsDeparturesWithRoute:(NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime
++ (id) getArrivalsDeparturesByRouteWithDelegate: (id) delegate route: (NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime succeedSelector: (SEL) succeedSelector
 {
     // stopId is REQUIRED
     if (!route){
-        return @"";
+        return nil;
     }
     
     // append urlParams if given
@@ -212,7 +226,10 @@ NSString *const lat = @"&lat=";
         datetime = [NSString stringWithFormat:@"%@%@", epochTime, datetime];
     }
     
-    return [NSString stringWithFormat:@"%@%@%@%@%@%@%@", baseString, scheduleByRoute, apiKey, routeGTFS, route, direction, datetime];
+    NSString * queryString = [NSString stringWithFormat:@"%@%@%@%@%@%@%@", baseString, scheduleByRoute, apiKey, routeGTFS, route, direction, datetime];
+    BTRequest *request = [[BTRequest alloc] initGetRequestWithApi:delegate urlString:queryString succeedSelector:succeedSelector failSelector:nil];
+    
+    return request;
     
 }
 
@@ -221,11 +238,11 @@ NSString *const lat = @"&lat=";
  * REQUIRED: route
  * OPTIONAL: datetime
  * * * * * * * * * * * */
-- (NSString *) getArrivalsDeparturesWithTrip:(NSString *)trip datetime:(NSString *)datetime
++ (id) getArrivalsDeparturesByTripWithDelegate: (id) delegate trip: (NSString *)trip datetime:(NSString *)datetime succeedSelector: (SEL) succeedSelector
 {
     // stopId is REQUIRED
     if (!trip){
-        return @"";
+        return nil;
     }
     
     // append urlParams if given
@@ -233,20 +250,10 @@ NSString *const lat = @"&lat=";
         datetime = [NSString stringWithFormat:@"%@%@", epochTime, datetime];
     }
     
-    return [NSString stringWithFormat:@"%@%@%@%@%@%@", baseString, scheduleByTrip, apiKey, tripGTFS, trip, datetime];
+    NSString *queryString = [NSString stringWithFormat:@"%@%@%@%@%@%@", baseString, scheduleByTrip, apiKey, tripGTFS, trip, datetime];
+    BTRequest *request = [[BTRequest alloc] initGetRequestWithApi:delegate urlString:queryString succeedSelector:succeedSelector failSelector:nil];
     
-}
-
-
-
-
-- (id) init {
-    self = [super init];
-    if (self) {
-        // custom initialization
-    }
-    
-    return self;
+    return request;
 }
 
 
@@ -254,6 +261,7 @@ NSString *const lat = @"&lat=";
  * queryURL: Makes an API call with a given URL string
  * REQUIRED: urlString
  * * * * * * * * * */
+// deprecated
 - (id) queryURL: (NSString *) urlString delegate: (id) delegate succeedSelector: (SEL) succeedSelector
 {
     
@@ -269,6 +277,7 @@ NSString *const lat = @"&lat=";
     return self;
 }
 
+# pragma mark - Connection methods
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     NSLog(@"didReceiveResponse");
     [self.responseData setLength:0];
