@@ -10,17 +10,21 @@
 
 @interface BTRequest : NSOperation
 
+//@property (nonatomic, strong) NSError *error;
 @property (nonatomic, strong) NSMutableData *responseData;
 @property (nonatomic, strong) NSURLConnection *connection;
+@property (nonatomic) id delegate;
+@property (nonatomic) SEL succeedSelector;
+@property (nonatomic) SEL failSelector;
+@property (nonatomic, strong) NSString *urlString;
+@property (nonatomic, strong) NSMutableDictionary *responseDict;
 
-- (id) init;
-- (id) queryURL: (NSString *) urlString;
-
+- (id) initGetRequestWithApi: (id) delegate urlString: (NSString *) urlString succeedSelector: (SEL) succeedSelector failSelector:(SEL) failSelector;
 
 // API calls
 - (NSString *) getArrivalsDeparturesWithStop:(NSString *)stopId route:(NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime;
 - (NSString *) getServerTime;
 - (NSString *) getRouteByStop: (NSString *) stopId;
-- (NSString *) getRouteList;
++ (id) getRouteListWithDelegate: (id) delegate succeedSelector: (SEL) succeedSelector;
 
 @end

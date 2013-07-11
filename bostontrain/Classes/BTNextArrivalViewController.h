@@ -8,6 +8,8 @@
 
 #import "BTViewController.h"
 
-@interface BTNextArrivalViewController : BTViewController
+@interface BTNextArrivalViewController : BTViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView *arrivalTableView;
 
 @end

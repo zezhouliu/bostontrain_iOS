@@ -14,6 +14,7 @@
 #import "GreenLineViewController.h"
 #import "BlueLineViewController.h"
 #import "OrangeLineViewController.h"
+#import "BTRequest.h"
 
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
@@ -58,6 +59,14 @@
 {
     
     [super viewDidLoad];
+    
+    BOOL test = YES;
+    
+    if (test) {
+        
+        BTRequest *request = [BTRequest getRouteListWithDelegate:self succeedSelector:@selector(getRouteRequestDidSucceed:)];
+        [self.requestQueue addOperation:request];
+    }
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         // have a
@@ -304,4 +313,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+# pragma mark - Requests
+
+- (void) getRouteRequestDidSucceed: (BTRequest *) request
+{
+    NSLog(@"Reached end of request");
+    request.
+}
 @end

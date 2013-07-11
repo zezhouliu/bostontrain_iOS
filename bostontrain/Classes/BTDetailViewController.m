@@ -64,8 +64,6 @@
     BTRequest *request = [[BTRequest alloc] init];
     //        NSString *url = [request getArrivalsDeparturesWithStop:@"Back Bay" route:@"" direction:@"" datetime:@""];
     NSString *url = [request getRouteByStop:@"70065"];
-    NSLog(@"%@", url);
-    [request queryURL:url];
 }
 
 

@@ -28,4 +28,7 @@
 - (void) orangeButtonClicked;
 - (void) greenButtonClicked;
 
+
+- (void) getRouteRequestDidSucceed: (BTRequest *) request;
+
 @end

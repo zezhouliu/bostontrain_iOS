@@ -44,6 +44,33 @@ NSString *const lat = @"&lat=";
 @implementation BTRequest
 
 
+// Base Get Request
+- (id)initGetRequestWithApi:(id)delegate urlString: (NSString *) urlString succeedSelector: (SEL) succeedSelector failSelector:(SEL) failSelector
+{
+    self = [super init];
+    
+    if (self) {
+        self.delegate = delegate;
+        self.urlString = urlString;
+        if (succeedSelector) {
+            self.succeedSelector = succeedSelector;
+        }
+        if (failSelector) {
+            self.failSelector = failSelector;
+        }
+
+        self.responseData = [NSMutableData data];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.urlString] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+        
+        [request setHTTPMethod:@"GET"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    }
+    
+    return self;
+
+}
+
 + (NSMutableDictionary *) appendBaseURLS:(NSMutableDictionary *) params
 {
     if ([[params objectForKey:@"stop"] length] > 0) {
@@ -83,9 +110,12 @@ NSString *const lat = @"&lat=";
 // get route list
 // REQUIRED: none
 // OPTIONAL: none
-- (NSString *) getRouteList
++ (id) getRouteListWithDelegate: (id) delegate succeedSelector: (SEL) succeedSelector
 {
-    return [NSString stringWithFormat:@"%@%@%@", baseString, routes, apiKey];
+    NSString *queryString = [NSString stringWithFormat:@"%@%@%@", baseString, routes, apiKey];
+    BTRequest *request = [[BTRequest alloc] initGetRequestWithApi:delegate urlString:queryString succeedSelector:succeedSelector failSelector:nil];
+    
+    return request;
 }
 
 /* * * * * * * * * * * *
@@ -221,7 +251,7 @@ NSString *const lat = @"&lat=";
  * queryURL: Makes an API call with a given URL string
  * REQUIRED: urlString
  * * * * * * * * * */
-- (id) queryURL: (NSString *) urlString
+- (id) queryURL: (NSString *) urlString delegate: (id) delegate succeedSelector: (SEL) succeedSelector
 {
     
     self.responseData = [NSMutableData data];
@@ -243,23 +273,45 @@ NSString *const lat = @"&lat=";
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     [self.responseData appendData:data];
+    
+
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     NSLog(@"didFailWithError");
     NSLog(@"%@", [NSString stringWithFormat:@"Connection failed: %@", [error description]]);
+    
+    if (self.delegate && self.failSelector && [self.delegate respondsToSelector:self.failSelector]) {
+        [self.delegate performSelectorOnMainThread:self.failSelector withObject:self waitUntilDone:NO];
+    }
+
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSLog(@"connectionDidFinishLoading");
     NSLog(@"Succeeded! Received %d bytes of data",[self.responseData length]);
     
-   
     // convert to JSON
-    NSError *myError = nil;
-    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
+    NSError *error = nil;
+    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&error];
     
      NSLog(@"DICTIONARY: %@", res);
+    
+    if (self.delegate && self.succeedSelector && [self.delegate respondsToSelector:self.succeedSelector]) {
+        [self.delegate performSelectorOnMainThread:self.succeedSelector withObject:self waitUntilDone:NO];
+    }
+}
+
+# pragma mark - properties
+- (NSMutableDictionary *) responseDict
+{
+    NSMutableDictionary *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:nil];
+    
+    if (!res) {
+        NSLog(@"NO RESPONSE DICT");
+    }
+    
+    return res;
     
 }
 
