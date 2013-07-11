@@ -138,13 +138,16 @@ NSString *const lat = @"&lat=";
  * REQUIRED: route
  * OPTIONAL: none
  * * * * * * * * * * * */
-- (NSString *) getStopListByRoute: (NSString *) route
++ (id) getStopListByRouteWithDelegate: (id) delegate route: (NSString *) route succeedSelector: (SEL) succeedSelector
 {
     if (!route){
         return @"";
     }
     
-    return [NSString stringWithFormat:@"%@%@%@%@%@", baseString, stopsByRoute, apiKey, routeGTFS, route];
+    NSString *queryString = [NSString stringWithFormat:@"%@%@%@%@%@", baseString, stopsByRoute, apiKey, routeGTFS, route];
+    BTRequest *request = [[BTRequest alloc] initGetRequestWithApi:delegate urlString:queryString succeedSelector:succeedSelector failSelector:nil];
+    
+    return request;
 }
 
 /* * * * * * * * * * * *

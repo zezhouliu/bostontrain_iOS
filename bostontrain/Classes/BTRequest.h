@@ -26,5 +26,6 @@
 - (NSString *) getServerTime;
 - (NSString *) getRouteByStop: (NSString *) stopId;
 + (id) getRouteListWithDelegate: (id) delegate succeedSelector: (SEL) succeedSelector;
++ (id) getStopListByRouteWithDelegate: (id) delegate route: (NSString *) route succeedSelector: (SEL) succeedSelector;
 
 @end

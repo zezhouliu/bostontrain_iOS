@@ -62,13 +62,14 @@
     
     [super viewDidLoad];
     
+    /* = = = = = = TESTING BLOCK = = = = = = */
     BOOL test = YES;
-    
     if (test) {
         
-        BTRequest *request = [BTRequest getRouteListWithDelegate:self succeedSelector:@selector(getRouteRequestDidSucceed:)];
+        BTRequest *request = [BTRequest getStopListByRouteWithDelegate:self route:@"742" succeedSelector:@selector(getStopListRequestDidSucceed:)];
         [self.requestQueue addOperation:request];
     }
+    /* = = = = = = TESTING BLOCK = = = = = = */
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         // have a
@@ -79,6 +80,7 @@
         
     }
     
+    [self pullRouteListing];
     [self setupNavigationBar];
     [self setupRoutePlanner];
     [self setupSearchBar];
@@ -129,7 +131,6 @@
  * * * * * * * * */
 - (void) setupOptionButtons
 {
-    NSLog(@"View frame: %@", self.view);
     
     // redLine button on top left
     
@@ -156,13 +157,14 @@
     [self.greenLineButton addTarget:self action:@selector(greenButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.greenLineButton];
     
-    NSLog(@"Red button: %@, height: %f, Green button: %@, height: %f", self.redLineButton, self.redLineButton.frame.size.height, self.greenLineButton, self.greenLineButton.frame.size.height);
+//    NSLog(@"Red button: %@, height: %f, Green button: %@, height: %f", self.redLineButton, self.redLineButton.frame.size.height, self.greenLineButton, self.greenLineButton.frame.size.height);
     
 }
 
 - (void) redButtonClicked
 {
     RedLineViewController *rlvc = [[RedLineViewController alloc] init];
+    rlvc.routeArray = self.redLineRouteIDs;
     [self.navigationController pushViewController:rlvc animated:YES];
     
 }
@@ -170,6 +172,7 @@
 - (void) blueButtonClicked
 {
     BlueLineViewController *blvc = [[BlueLineViewController alloc] init];
+    blvc.routeArray = self.blueLineRouteIDs;
     [self.navigationController pushViewController:blvc animated:YES];
     
 }
@@ -177,14 +180,17 @@
 - (void) greenButtonClicked
 {
     GreenLineViewController *glvc = [[GreenLineViewController alloc] init];
+    glvc.routeArray = self.greenLineRouteIDs;
     [self.navigationController pushViewController:glvc animated:YES];
 }
 
 - (void) orangeButtonClicked
 {
     OrangeLineViewController *olvc = [[OrangeLineViewController alloc] init];
+    olvc.routeArray = self.orangeLineRouteIDs;
     [self.navigationController pushViewController:olvc animated:YES];
 }
+
 # pragma mark - subviews
 /* * * * * * *
  * In this section, we lazy load our subviews
@@ -288,6 +294,7 @@
     [self.view addSubview:self.alertHeader];
     
 }
+
 # pragma mark - navigation buttons
 - (void) setupNavigationBar
 {
@@ -317,6 +324,11 @@
 
 
 # pragma mark - Requests
+- (void) pullRouteListing
+{
+    BTRequest *request = [BTRequest getRouteListWithDelegate:self succeedSelector:@selector(getRouteRequestDidSucceed:)];
+    [self.requestQueue addOperation:request];
+}
 
 - (void) getRouteRequestDidSucceed: (BTRequest *) request
 {
@@ -360,6 +372,11 @@
     }
 }
 
+- (void) getStopListRequestDidSucceed: (BTRequest *) request
+{
+    NSLog(@"RESULTS: %@", request.responseDict);
+    
+}
 # pragma mark - properties
 /* * * * * * * * * *
  * subwayRoutesArray is an array containing dictionaries with 2 KV pairs

@@ -16,4 +16,6 @@
 
 @interface TrainViewController : BTViewController
 
+@property (nonatomic, strong) NSMutableArray *routeArray;
+
 @end
