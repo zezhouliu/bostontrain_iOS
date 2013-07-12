@@ -26,7 +26,6 @@
 + (id) getArrivalsDeparturesByRouteWithDelegate: (id) delegate route: (NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime succeedSelector: (SEL) succeedSelector;
 + (id) getArrivalsDeparturesByTripWithDelegate: (id) delegate trip: (NSString *)trip datetime:(NSString *)datetime succeedSelector: (SEL) succeedSelector;
 + (id) getServerTimeWithDelegate: (id) delegate succeedSelector: (SEL) succeedSelector;
-+ (id) getStopListByRouteWithDelegate: (id) delegate route: (NSString *) route succeedSelector: (SEL) succeedSelector;
 + (id) getAlertsWithDelegate: (id) delegate succeedSelector: (SEL) succeedSelector;
 + (id) getRouteListWithDelegate: (id) delegate succeedSelector: (SEL) succeedSelector;
 + (id) getStopListByRouteWithDelegate: (id) delegate route: (NSString *) route succeedSelector: (SEL) succeedSelector;

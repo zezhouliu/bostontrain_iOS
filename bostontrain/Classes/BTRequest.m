@@ -154,6 +154,8 @@ NSString *const lat = @"&lat=";
     }
     
     NSString *queryString = [NSString stringWithFormat:@"%@%@%@%@%@", baseString, stopsByRoute, apiKey, routeGTFS, route];
+    
+    
     BTRequest *request = [[BTRequest alloc] initGetRequestWithApi:delegate urlString:queryString succeedSelector:succeedSelector failSelector:nil];
     
     return request;
@@ -267,7 +269,7 @@ NSString *const lat = @"&lat=";
     
     self.responseData = [NSMutableData data];
         
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:60.0];
         
     [request setHTTPMethod:@"GET"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -305,7 +307,10 @@ NSString *const lat = @"&lat=";
     
     // convert to JSON
     NSError *error = nil;
-    self.responseDict = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&error];
+    if ([NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&error] && [[NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&error] isKindOfClass:[NSDictionary class]]) {
+        self.responseDict = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&error];
+    }
+
     
     if (!self.responseDict) {
         NSLog(@"NO RESPONSE DICT");

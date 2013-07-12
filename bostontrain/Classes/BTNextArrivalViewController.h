@@ -12,4 +12,7 @@
 
 @property (nonatomic, strong) UITableView *arrivalTableView;
 
+@property (nonatomic, strong) NSArray *inboundStops;
+@property (nonatomic, strong) NSArray *outboundStops;
+
 @end

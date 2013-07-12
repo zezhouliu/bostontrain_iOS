@@ -63,7 +63,7 @@
     [super viewDidLoad];
     
     /* = = = = = = TESTING BLOCK = = = = = = */
-    BOOL test = NO;
+    BOOL test = YES;
     if (test) {
         
         BTRequest *request = [BTRequest getStopListByRouteWithDelegate:self route:@"742" succeedSelector:@selector(getStopListRequestDidSucceed:)];
@@ -372,11 +372,6 @@
     }
 }
 
-- (void) getStopListRequestDidSucceed: (BTRequest *) request
-{
-    NSLog(@"RESULTS: %@", request.responseDict);
-    
-}
 # pragma mark - properties
 /* * * * * * * * * *
  * subwayRoutesArray is an array containing dictionaries with 2 KV pairs

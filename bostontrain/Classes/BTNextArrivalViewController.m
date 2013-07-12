@@ -71,4 +71,30 @@
     
 }
 
+# pragma mark - requests
+
+- (void) getStopListRequest: (NSString *) route
+{
+    BTRequest *request = [BTRequest getStopListByRouteWithDelegate:self route:route succeedSelector:@selector(getStopListRequestDidSucceed:)];
+    [self.requestQueue addOperation:request];
+}
+
+- (void) getStopListRequestDidSucceed: (BTRequest *) request
+{
+    NSLog(@"RESULTS: %@", request.responseDict);
+    if (request.responseDict) {
+        NSArray *directionRoute = [request.responseDict objectForKey:@"direction"];
+        for (int i = 0; i < [directionRoute count]; i++) {
+            if ([[directionRoute objectAtIndex:i] isKindOfClass:[NSDictionary class]] && [[directionRoute objectAtIndex:i] objectForKey:@"direction_name"]){
+                if ([[[directionRoute objectAtIndex:i] objectForKey:@"direction_name"] isEqualToString:@"Outbound"]){
+                    self.outboundStops = [[directionRoute objectAtIndex:i] objectForKey:@"stop"];
+                }
+                else if ([[[directionRoute objectAtIndex:i] objectForKey:@"direction_name"] isEqualToString:@"Inbound"]){
+                    self.inboundStops = [[directionRoute objectAtIndex:i] objectForKey:@"stop"];
+                }
+            }
+        }
+    }
+    
+}
 @end
