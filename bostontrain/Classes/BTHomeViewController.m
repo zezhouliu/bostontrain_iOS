@@ -63,7 +63,7 @@
     [super viewDidLoad];
     
     /* = = = = = = TESTING BLOCK = = = = = = */
-    BOOL test = YES;
+    BOOL test = NO;
     if (test) {
         
         BTRequest *request = [BTRequest getStopListByRouteWithDelegate:self route:@"742" succeedSelector:@selector(getStopListRequestDidSucceed:)];
@@ -134,7 +134,7 @@
     
     // redLine button on top left
     
-    self.redLineButton.frame = CGRectMake(0, self.routePlannerBar.frame.size.height, self.view.frame.size.width / 2, (self.view.frame.size.height / 2) - 50);
+    self.redLineButton.frame = CGRectMake(0, self.routePlannerBar.frame.origin.y + self.routePlannerBar.frame.size.height, self.view.frame.size.width / 2, (self.view.frame.size.height / 2) - 50);
     [self.redLineButton addTarget:self action:@selector(redButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.redLineButton];
     
