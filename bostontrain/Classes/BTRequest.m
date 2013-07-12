@@ -180,8 +180,8 @@ NSString *const lat = @"&lat=";
 
 /* * * * * * * * * * * *
  * get scheduled arrivals and departures by stop
- * REQUIRED: stop
- * OPTIONAL: route, direction, datetime
+ * REQUIRED: stop (Example: “Back Bay”)
+ * OPTIONAL: route (Example: “CR-Providence”), direction (Example: 0/1), datetime (Example: “1361989200”);
  * * * * * * * * * * * */
 + (id) getArrivalsDeparturesByStopWithDelegate: (id) delegate stopId: (NSString *)stopId route:(NSString *)route direction:(NSString *)direction datetime:(NSString *)datetime succeedSelector: (SEL) succeedSelector
 {
@@ -269,7 +269,7 @@ NSString *const lat = @"&lat=";
     
     self.responseData = [NSMutableData data];
         
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:60.0];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0];
         
     [request setHTTPMethod:@"GET"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];

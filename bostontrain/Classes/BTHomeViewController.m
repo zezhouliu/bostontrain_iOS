@@ -66,7 +66,8 @@
     BOOL test = YES;
     if (test) {
         
-        BTRequest *request = [BTRequest getStopListByRouteWithDelegate:self route:@"742" succeedSelector:@selector(getStopListRequestDidSucceed:)];
+//        BTRequest *request = [BTRequest getStopListByRouteWithDelegate:self route:@"746" succeedSelector:@selector(getArrivalsDeparturesByStopRequestDidSucceed:)];
+        BTRequest *request = [BTRequest getArrivalsDeparturesByStopWithDelegate:self stopId:@"74613" route:@"" direction:@"" datetime:@"" succeedSelector:@selector(getArrivalsDeparturesByStopRequestDidSucceed:)];
         [self.requestQueue addOperation:request];
     }
     /* = = = = = = TESTING BLOCK = = = = = = */
@@ -80,7 +81,7 @@
         
     }
     
-    [self pullRouteListing];
+//    [self pullRouteListing];
     [self setupNavigationBar];
     [self setupRoutePlanner];
     [self setupSearchBar];
@@ -370,6 +371,12 @@
             }
         }
     }
+}
+
+- (void) getArrivalsDeparturesByStopRequestDidSucceed: (BTRequest *) request
+{
+    NSLog(@"Request result: %@", request.responseDict);
+    
 }
 
 # pragma mark - properties

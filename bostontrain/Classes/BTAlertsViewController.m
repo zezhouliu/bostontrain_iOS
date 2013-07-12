@@ -30,12 +30,27 @@
     self.view.layer.backgroundColor = [[UIColor purpleColor] CGColor];
 	// Do any additional setup after loading the view.
     
+    [self getAlerts];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+# pragma mark - requests
+
+- (void) getAlerts
+{
+    BTRequest *request = [BTRequest getAlertsWithDelegate:self succeedSelector:@selector(getAlertsRequestDidSucceed:)];
+    [self.requestQueue addOperation:request];
+}
+
+- (void) getAlertsRequestDidSucceed: (BTRequest *) request
+{
+    // render alerts in table view
 }
 
 @end
