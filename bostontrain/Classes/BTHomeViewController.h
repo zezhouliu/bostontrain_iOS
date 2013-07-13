@@ -30,6 +30,10 @@
 @property (nonatomic, strong) NSMutableArray *blueLineRouteIDs;
 @property (nonatomic, strong) NSMutableArray *orangeLineRouteIDs;
 
+
+@property (nonatomic, strong) NSArray *inboundStops;
+@property (nonatomic, strong) NSArray *outboundStops;
+
 - (void) redButtonClicked;
 - (void) blueButtonClicked;
 - (void) orangeButtonClicked;

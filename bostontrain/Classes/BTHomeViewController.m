@@ -67,8 +67,10 @@
     if (test) {
         
 //        BTRequest *request = [BTRequest getStopListByRouteWithDelegate:self route:@"746" succeedSelector:@selector(getArrivalsDeparturesByStopRequestDidSucceed:)];
-        BTRequest *request = [BTRequest getArrivalsDeparturesByStopWithDelegate:self stopId:@"74613" route:@"" direction:@"" datetime:@"" succeedSelector:@selector(getArrivalsDeparturesByStopRequestDidSucceed:)];
-        [self.requestQueue addOperation:request];
+        BTRequest *request1 = [BTRequest getArrivalsDeparturesByStopWithDelegate:self stopId:@"70065" route:@"" direction:@"" datetime:@"" succeedSelector:@selector(getArrivalsDeparturesByStopRequestDidSucceed:)];
+        
+        BTRequest *request = [BTRequest getStopListByRouteWithDelegate:self route:@"931_" succeedSelector:@selector(getStopListRequestDidSucceed:)];
+        [self.requestQueue addOperation:request1];
     }
     /* = = = = = = TESTING BLOCK = = = = = = */
     
@@ -373,9 +375,145 @@
     }
 }
 
+- (void) getStopListRequest: (NSString *) route
+{
+    BTRequest *request = [BTRequest getStopListByRouteWithDelegate:self route:route succeedSelector:@selector(getStopListRequestDidSucceed:)];
+    [self.requestQueue addOperation:request];
+}
+
+- (void) getStopListRequestDidSucceed: (BTRequest *) request
+{
+    NSLog(@"RESULTS: %@", request.responseDict);
+    if (request.responseDict) {
+        NSArray *directionRoute = [request.responseDict objectForKey:@"direction"];
+        for (int i = 0; i < [directionRoute count]; i++) {
+            if ([[directionRoute objectAtIndex:i] isKindOfClass:[NSDictionary class]] && [[directionRoute objectAtIndex:i] objectForKey:@"direction_name"]){
+                if ([[[directionRoute objectAtIndex:i] objectForKey:@"direction_name"] isEqualToString:@"Outbound"]){
+                    self.outboundStops = [[directionRoute objectAtIndex:i] objectForKey:@"stop"];
+                }
+                else if ([[[directionRoute objectAtIndex:i] objectForKey:@"direction_name"] isEqualToString:@"Inbound"]){
+                    self.inboundStops = [[directionRoute objectAtIndex:i] objectForKey:@"stop"];
+                }
+            }
+        }
+    }
+    
+}
+
 - (void) getArrivalsDeparturesByStopRequestDidSucceed: (BTRequest *) request
 {
     NSLog(@"Request result: %@", request.responseDict);
+    
+    if (request.responseDict) {
+        if ([request.responseDict objectForKey:@"mode"]) {
+            // Array of all routes of all commute type (i.e. subway, ferry, etc)
+            NSArray *routesArray = [request.responseDict objectForKey:@"mode"];
+            if (routesArray) {
+                for (int i = 0; i < [self.routesArray count]; i++) {
+                    
+                    // routeDicts is the dictionary for each commute type
+                    NSDictionary *routeDicts = [self.routesArray objectAtIndex:i];
+                    
+                    // if the dict is for a subway, we grab the array of all routes and add to oure self.subwayRoutesArray
+                    if ([routeDicts objectForKey:@"mode_name"] && ([[routeDicts objectForKey:@"mode_name"] isEqualToString:SUBWAY_VALUE]) && [[routeDicts objectForKey:@"route"] isKindOfClass:[NSArray class]]) {
+                        NSArray *subwayRoutes = [routeDicts objectForKey:@"route"];
+                        [self.subwayRoutesArray addObjectsFromArray:subwayRoutes];
+                        
+                        // Here, we do additional parsing to store arrays for each subway line (Red, Green, Blue, etc);
+                        for (int j = 0; j < [subwayRoutes count]; j++) {
+                            NSDictionary *directionRoute = [subwayRoutes objectAtIndex:j];
+                            if (directionRoute && [directionRoute objectForKey:@"direction"] && [[directionRoute objectForKey:@"directon"] isKindOfClass:[NSArray class]]) {
+                                NSArray *directionArray = [directionRoute objectForKey:@"direction"];
+                                
+                                for (int k = 0; k < [directionArray count]; k ++) {
+                                    if ([[directionArray objectAtIndex:k] isKindOfClass:[NSDictionary class]]) {
+                                        if ([[directionArray objectAtIndex:k] objectForKey:@"route_id"] && [[[directionArray objectAtIndex:k] objectForKey:@"direction_name"] isEqualToString:@"931_"]) {
+                                            self.ashmont = [directionArray objectAtIndex:k];
+                                        }
+                                        else if ([[directionArray objectAtIndex:k] objectForKey:@"route_id"] && [[[directionArray objectAtIndex:k] objectForKey:@"direction_name"] isEqualToString:@"933_"]) {
+                                            self.braintree = [directionArray objectAtIndex:k];
+                                        }
+                                    }
+                                }
+                                    
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    /**
+     {
+     mode =     (
+     {
+     "mode_name" = Subway;
+     route =             (
+     {
+     direction =                     (
+     {
+     "direction_id" = 0;
+     "direction_name" = Southbound;
+     trip =                             (
+     {
+     "sch_arr_dt" = 1373688060;
+     "sch_dep_dt" = 1373688060;
+     "trip_id" = 20222555;
+     "trip_name" = "11:56 pm from Alewife Station Red Line to Ashmont Station - Red Line";
+     },
+     {
+     "sch_arr_dt" = 1373688900;
+     "sch_dep_dt" = 1373688900;
+     "trip_id" = 20222537;
+     "trip_name" = "12:10 am from Alewife Station Red Line to Ashmont Station - Red Line";
+     },
+     {
+     "sch_arr_dt" = 1373689620;
+     "sch_dep_dt" = 1373689620;
+     "trip_id" = 20222544;
+     "trip_name" = "12:22 am from Alewife Station Red Line to Ashmont Station - Red Line";
+     }
+     );
+     }
+     );
+     "route_id" = "931_";
+     "route_name" = "Red Line";
+     },
+     {
+     direction =                     (
+     {
+     "direction_id" = 0;
+     "direction_name" = Southbound;
+     trip =                             (
+     {
+     "sch_arr_dt" = 1373688480;
+     "sch_dep_dt" = 1373688480;
+     "trip_id" = 20222618;
+     "trip_name" = "12:03 am from Alewife Station Red Line to Braintree Station Red Line Platform";
+     },
+     {
+     "sch_arr_dt" = 1373689200;
+     "sch_dep_dt" = 1373689200;
+     "trip_id" = 20222624;
+     "trip_name" = "12:15 am from Alewife Station Red Line to Braintree Station Red Line Platform";
+     }
+     );
+     }
+     );
+     "route_id" = "933_";
+     "route_name" = "Red Line";
+     }
+     );
+     "route_type" = 1;
+     }
+     );
+     "stop_id" = 70065;
+     "stop_name" = "Porter Sq - Inbound";
+     }
+
+     **/
     
 }
 
